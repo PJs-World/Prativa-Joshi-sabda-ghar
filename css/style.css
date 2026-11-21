@@ -1164,6 +1164,10 @@ ul#list {
   margin-right: auto
 }
 
+.about > h2,.how > h2,.contribute > h2 {
+  margin-left: max(0px,calc((100% - 1072px)/2))
+}
+
 .contribute .section-eyebrow {
   color: #ffe08a
 }
