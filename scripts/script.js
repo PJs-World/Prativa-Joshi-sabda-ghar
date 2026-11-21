@@ -200,8 +200,10 @@ $("list").addEventListener("click", async (ev) => {
   } catch (e) { say(e.status ? e.message : OFFLINE_MSG); }
 });
 
-let timer;
-$("q").addEventListener("input", () => { clearTimeout(timer); timer = setTimeout(loadWords, 200); });
+$("searchForm").addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  loadWords();
+});
 $("onlyMissing").addEventListener("change", render);
 
 $("addBtn").addEventListener("click", async () => {

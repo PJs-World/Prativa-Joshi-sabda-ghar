@@ -1,7 +1,7 @@
 // Caches the app shell so the page opens with no internet.
 // Word data is handled by script.js (saved copy in localStorage).
-// Bump CACHE (v1 -> v2) whenever you change any front-end file.
-const CACHE = "sabda-ghar-v7";
+// Bump CACHE whenever a cached front-end asset changes.
+const CACHE = "sabda-ghar-v14";
 const ASSETS = ["./", "index.html", "css/style.css", "scripts/script.js", "manifest.json",
   "learn.html", "css/learn.css", "data/cards.json", "scripts/engine.js", "scripts/learn.js",
   "icons/icon.svg", "icons/icon-192.png", "icons/icon-512.png", "icons/icon-maskable-512.png"];

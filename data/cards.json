@@ -25,14 +25,31 @@
     { "id": "myself", "en": "myself", "pic": "🙋", "ne": "आफैँ", "rom": "aafai", "doteli": "" },
     { "id": "old", "en": "old", "pic": "👴", "ne": "बूढो", "rom": "budho", "doteli": "" },
     { "id": "animal", "en": "animal", "pic": "🐾", "ne": "जनावर", "rom": "janawar", "doteli": "" },
-    { "id": "fat", "en": "fat", "pic": "🐘", "ne": "मोटो", "rom": "moto", "doteli": "" }
+    { "id": "fat", "en": "fat", "pic": "🐘", "ne": "मोटो", "rom": "moto", "doteli": "" },
+    { "id": "rice_pudding", "en": "rice pudding", "pic": "🍚", "ne": "खीर", "rom": "kheer", "doteli": "" },
+    { "id": "mango", "en": "mango", "pic": "🥭", "ne": "आँप", "rom": "aamp", "doteli": "" },
+    { "id": "bridge", "en": "bridge", "pic": "🌉", "ne": "पुल", "rom": "pul", "doteli": "" },
+    { "id": "onion", "en": "onion", "pic": "🧅", "ne": "प्याज", "rom": "pyaj", "doteli": "" },
+    { "id": "garden", "en": "garden", "pic": "🌷", "ne": "बगैँचा", "rom": "bagaicha", "doteli": "" },
+    { "id": "yesterday", "en": "yesterday", "pic": "📅", "ne": "हिजो", "rom": "hijo", "doteli": "" },
+    { "id": "spice", "en": "spice", "pic": "🌶️", "ne": "मसला", "rom": "masala", "doteli": "" },
+    { "id": "daughter", "en": "daughter", "pic": "👧", "ne": "छोरी", "rom": "chhori", "doteli": "" },
+    { "id": "dog", "en": "dog", "pic": "🐕", "ne": "कुकुर", "rom": "kukur", "doteli": "" },
+    { "id": "pig", "en": "pig", "pic": "🐖", "ne": "सुंगुर", "rom": "sungur", "doteli": "" },
+    { "id": "come", "en": "come", "pic": "🚶", "ne": "आउनु", "rom": "aunu", "doteli": "" },
+    { "id": "basket", "en": "basket", "pic": "🧺", "ne": "चँगेरो", "rom": "changero", "doteli": "" },
+    { "id": "store", "en": "store", "pic": "🏪", "ne": "पसल", "rom": "pasal", "doteli": "" },
+    { "id": "three", "en": "three", "pic": "3️⃣", "ne": "तीन", "rom": "tin", "doteli": "" },
+    { "id": "crow", "en": "crow", "pic": "🐦‍⬛", "ne": "काग", "rom": "kaag", "doteli": "" },
+    { "id": "energetic", "en": "energetic", "pic": "⚡", "ne": "जाँगरिलो", "rom": "jangarilo", "doteli": "" }
   ],
   "lessons": [
-    { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry"] },
-    { "id": "body", "title": "Body and animals", "icon": "🐒", "cards": ["ear", "leg", "fish", "monkey"] },
-    { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon"] },
-    { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place"] },
-    { "id": "sky", "title": "Sky, sound, amounts", "icon": "⭐", "cards": ["star", "noise", "many"] },
-    { "id": "doteli-starters", "title": "Doteli starter words", "icon": "🌱", "cards": ["mother", "myself", "old", "animal", "fat"] }
+    { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry", "mother", "myself", "old", "daughter", "energetic"] },
+    { "id": "body", "title": "Body and animals", "icon": "🐒", "cards": ["ear", "leg", "fish", "monkey", "animal", "dog", "pig"] },
+    { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon", "come", "yesterday"] },
+    { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place", "basket", "store", "garden", "bridge"] },
+    { "id": "sky", "title": "Sky, sound, amounts", "icon": "⭐", "cards": ["star", "noise", "many", "crow", "three"] },
+    { "id": "doteli-starters", "title": "Doteli starter words", "icon": "🌱", "cards": ["mother", "myself", "old", "animal", "fat"] },
+    { "id": "doteli-everyday", "title": "Food, places and time", "icon": "🧭", "cards": ["monkey", "rice_pudding", "mango", "bridge", "onion", "garden", "yesterday", "spice"] }
   ]
 }

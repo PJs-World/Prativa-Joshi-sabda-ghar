@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Sabda Ghar: English, Nepali and Doteli Dictionary</title>
 <meta name="description" content="A community dictionary from English to Nepali and Doteli, the language of Sudurpashchim Province. Search, listen, and help preserve it.">
-<meta name="theme-color" content="#0f4c45">
+<meta name="theme-color" content="#105f43">
 <link rel="manifest" href="./manifest.json">
 <link rel="icon" href="./icons/icon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="./icons/icon-192.png">
@@ -77,8 +77,11 @@
       <h2>The dictionary</h2>
       <p class="sub">Search in English, Nepali, Roman Nepali, or Doteli.</p>
 
-      <label for="q" class="vh">Search words</label>
-      <input type="text" id="q" placeholder="Try “water” or “पानी”" autocomplete="off">
+      <form id="searchForm" class="search-form" role="search">
+        <label for="q" class="vh">Search words</label>
+        <input type="text" id="q" placeholder="Try “water” or “पानी”" autocomplete="off">
+        <button class="btn primary search-submit" type="submit">Search</button>
+      </form>
       <div class="bar"><label><input type="checkbox" id="onlyMissing"> Only words missing Doteli</label></div>
 
       <details id="addBox">

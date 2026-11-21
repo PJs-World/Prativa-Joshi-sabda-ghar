@@ -102,8 +102,11 @@
     view = "home";
     const have = CARDS.filter((c) => c.doteli).length;
     const path = h("ol", { class: "path" });
+    const lessons = save.lang === "doteli"
+      ? LESSONS.filter((l) => l.id.startsWith("doteli-")).concat(LESSONS.filter((l) => !l.id.startsWith("doteli-")))
+      : LESSONS;
     let blocked = false;
-    LESSONS.forEach((l) => {
+    lessons.forEach((l) => {
       const n = lessonCards(l).length;
       const empty = n === 0 || pool().length < 4;
       const done = !!save.done[save.lang + ":" + l.id];
@@ -124,7 +127,7 @@
       h("p", { class: "sub" }, "Finish a lesson to unlock the next one."),
       langToggle(),
       save.lang === "doteli" ? h("p", { class: "note" },
-        have + " of " + CARDS.length + " words have a Doteli form so far. Lessons open as speakers add words on the dictionary page.") : null,
+        have + " of " + CARDS.length + " words have a Doteli form so far. Starter words are available now; help verify them or add more on the dictionary page.") : null,
       path));
   }
 

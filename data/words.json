@@ -81,5 +81,277 @@
         "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/मोटो"
       }
     ]
+  },
+  {
+    "id": "9",
+    "en": "monkey",
+    "ne": "बाँदर",
+    "rom": "baandar",
+    "doteli": [
+      {
+        "id": "16",
+        "text": "बानर",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/बानर"
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "en": "rice pudding",
+    "ne": "खीर",
+    "rom": "kheer",
+    "doteli": [
+      {
+        "id": "17",
+        "text": "खीर",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/खीर"
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "en": "mango",
+    "ne": "आँप",
+    "rom": "aamp",
+    "doteli": [
+      {
+        "id": "18",
+        "text": "आँम",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/आँम"
+      }
+    ]
+  },
+  {
+    "id": "12",
+    "en": "bridge",
+    "ne": "पुल",
+    "rom": "pul",
+    "doteli": [
+      {
+        "id": "19",
+        "text": "पुल",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/पुल"
+      }
+    ]
+  },
+  {
+    "id": "13",
+    "en": "onion",
+    "ne": "प्याज",
+    "rom": "pyaj",
+    "doteli": [
+      {
+        "id": "20",
+        "text": "प्याज",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/प्याज"
+      }
+    ]
+  },
+  {
+    "id": "14",
+    "en": "garden",
+    "ne": "बगैँचा",
+    "rom": "bagaicha",
+    "doteli": [
+      {
+        "id": "21",
+        "text": "बगैचा",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/बगैचा"
+      }
+    ]
+  },
+  {
+    "id": "15",
+    "en": "yesterday",
+    "ne": "हिजो",
+    "rom": "hijo",
+    "doteli": [
+      {
+        "id": "22",
+        "text": "बेलि",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/बेलि"
+      }
+    ]
+  },
+  {
+    "id": "16",
+    "en": "spice",
+    "ne": "मसला",
+    "rom": "masala",
+    "doteli": [
+      {
+        "id": "23",
+        "text": "मसला",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/मसला"
+      }
+    ]
+  },
+  {
+    "id": "17",
+    "en": "daughter",
+    "ne": "छोरी",
+    "rom": "chhori",
+    "doteli": [
+      {
+        "id": "24",
+        "text": "चेली",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/चेली"
+      }
+    ]
+  },
+  {
+    "id": "18",
+    "en": "dog",
+    "ne": "कुकुर",
+    "rom": "kukur",
+    "doteli": [
+      {
+        "id": "25",
+        "text": "कुकुर",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/कुकुर"
+      }
+    ]
+  },
+  {
+    "id": "19",
+    "en": "pig",
+    "ne": "सुंगुर",
+    "rom": "sungur",
+    "doteli": [
+      {
+        "id": "26",
+        "text": "सुंगर",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/सुंगर"
+      }
+    ]
+  },
+  {
+    "id": "20",
+    "en": "come",
+    "ne": "आउनु",
+    "rom": "aunu",
+    "doteli": [
+      {
+        "id": "27",
+        "text": "आउन्",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/आउन्"
+      }
+    ]
+  },
+  {
+    "id": "21",
+    "en": "basket",
+    "ne": "चँगेरो",
+    "rom": "changero",
+    "doteli": [
+      {
+        "id": "28",
+        "text": "छापरो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/छापरो"
+      }
+    ]
+  },
+  {
+    "id": "22",
+    "en": "store",
+    "ne": "पसल",
+    "rom": "pasal",
+    "doteli": [
+      {
+        "id": "29",
+        "text": "दोकान",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/दोकान"
+      }
+    ]
+  },
+  {
+    "id": "23",
+    "en": "three",
+    "ne": "तीन",
+    "rom": "tin",
+    "doteli": [
+      {
+        "id": "30",
+        "text": "तीन",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/तीन"
+      }
+    ]
+  },
+  {
+    "id": "24",
+    "en": "crow",
+    "ne": "काग",
+    "rom": "kaag",
+    "doteli": [
+      {
+        "id": "31",
+        "text": "कौवा",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/कौवा"
+      }
+    ]
+  },
+  {
+    "id": "25",
+    "en": "energetic",
+    "ne": "जाँगरिलो",
+    "rom": "jangarilo",
+    "doteli": [
+      {
+        "id": "32",
+        "text": "इच्छ्याबालो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/इच्छ्याबालो"
+      }
+    ]
   }
 ]
