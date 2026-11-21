@@ -409,6 +409,12 @@ $("searchForm").addEventListener("submit", (ev) => {
   ev.preventDefault();
   loadWords();
 });
+$("heroSearchForm").addEventListener("submit", (ev) => {
+  ev.preventDefault();
+  $("q").value = $("heroSearch").value.trim();
+  loadWords();
+  document.querySelector("#dictionary").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" });
+});
 $("onlyMissing").addEventListener("change", render);
 
 $("addBtn").addEventListener("click", async () => {

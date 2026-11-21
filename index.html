@@ -35,6 +35,11 @@
       <p class="kicker">A community dictionary for Sudurpashchim</p>
       <h1>Every word has a <em>home.</em></h1>
       <p class="lead">Look up English words in Nepali and Doteli, hear them spoken, and help native speakers write down the words their grandparents use.</p>
+      <form id="heroSearchForm" class="hero-search" role="search">
+        <label for="heroSearch" class="vh">Search the dictionary</label>
+        <input id="heroSearch" type="text" placeholder="Search a word, such as पानी" autocomplete="off">
+        <button type="submit" aria-label="Search">Search <span aria-hidden="true">→</span></button>
+      </form>
       <div class="cta">
         <a class="btn primary" href="#dictionary">Search the dictionary</a>
         <a class="btn ghost" href="learn.html">Learn with picture cards</a>
@@ -43,6 +48,7 @@
     </div>
 
     <div class="hero-card" role="img" aria-label="Example: an English word shown with its Nepali and Doteli translations">
+      <div class="hc-label"><span aria-hidden="true">●</span> Word of the moment</div>
       <div class="hc-row"><span class="hc-tag">English</span><span class="hc-word" id="hEn">water</span></div>
       <div class="hc-row"><span class="hc-tag">Nepali</span><span class="hc-word" id="hNe" lang="ne">पानी</span><span class="hc-rom" id="hRom">pani</span></div>
       <div class="hc-row"><span class="hc-tag">Doteli</span><span class="hc-word" id="hDo" lang="ne"></span></div>
