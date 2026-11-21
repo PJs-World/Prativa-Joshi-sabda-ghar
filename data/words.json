@@ -1,0 +1,85 @@
+[
+  { "id": "1", "en": "water", "ne": "पानी", "rom": "pani", "doteli": [] },
+  { "id": "2", "en": "house", "ne": "घर", "rom": "ghar", "doteli": [] },
+  { "id": "3", "en": "mountain", "ne": "पहाड", "rom": "pahad", "doteli": [] },
+  {
+    "id": "4",
+    "en": "mother",
+    "ne": "आमा",
+    "rom": "aama",
+    "doteli": [
+      {
+        "id": "11",
+        "text": "महतारी",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/महतारी"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "en": "myself",
+    "ne": "आफैँ",
+    "rom": "aafai",
+    "doteli": [
+      {
+        "id": "12",
+        "text": "आफुइ",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/आफुइ"
+      }
+    ]
+  },
+  {
+    "id": "6",
+    "en": "old",
+    "ne": "बूढो",
+    "rom": "budho",
+    "doteli": [
+      {
+        "id": "13",
+        "text": "बुड़ो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/बुड़ो"
+      }
+    ]
+  },
+  {
+    "id": "7",
+    "en": "animal",
+    "ne": "जनावर",
+    "rom": "janawar",
+    "doteli": [
+      {
+        "id": "14",
+        "text": "पशु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/पशु"
+      }
+    ]
+  },
+  {
+    "id": "8",
+    "en": "fat",
+    "ne": "मोटो",
+    "rom": "moto",
+    "doteli": [
+      {
+        "id": "15",
+        "text": "मोटो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/मोटो"
+      }
+    ]
+  }
+]

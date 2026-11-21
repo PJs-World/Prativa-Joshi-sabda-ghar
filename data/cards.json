@@ -1,0 +1,38 @@
+{
+  "cards": [
+    { "id": "grandmother", "en": "grandmother", "pic": "👵", "ne": "हजुरआमा", "rom": "hajuraama", "doteli": "" },
+    { "id": "grandfather", "en": "grandfather", "pic": "👴", "ne": "हजुरबुबा", "rom": "hajurbuba", "doteli": "" },
+    { "id": "i", "en": "I", "pic": "🙋", "ne": "म", "rom": "ma", "doteli": "" },
+    { "id": "worry", "en": "worry", "pic": "😟", "ne": "चिन्ता", "rom": "chinta", "doteli": "" },
+    { "id": "angry", "en": "angry", "pic": "😠", "ne": "रिसाएको", "rom": "risaeko", "doteli": "" },
+    { "id": "ear", "en": "ear", "pic": "👂", "ne": "कान", "rom": "kaan", "doteli": "" },
+    { "id": "leg", "en": "leg", "pic": "🦵", "ne": "खुट्टा", "rom": "khutta", "doteli": "" },
+    { "id": "fish", "en": "fish", "pic": "🐟", "ne": "माछा", "rom": "machha", "doteli": "" },
+    { "id": "monkey", "en": "monkey", "pic": "🐒", "ne": "बाँदर", "rom": "baandar", "doteli": "" },
+    { "id": "to_call", "en": "to call", "pic": "📞", "ne": "बोलाउनु", "rom": "bolaunu", "doteli": "" },
+    { "id": "to_sleep", "en": "to sleep", "pic": "😴", "ne": "सुत्नु", "rom": "sutnu", "doteli": "" },
+    { "id": "fast", "en": "fast", "pic": "🐆", "ne": "छिटो", "rom": "chhito", "doteli": "" },
+    { "id": "slow", "en": "slow", "pic": "🐢", "ne": "ढिलो", "rom": "dhilo", "doteli": "" },
+    { "id": "soon", "en": "soon", "pic": "⏳", "ne": "छिट्टै", "rom": "chhittai", "doteli": "" },
+    { "id": "back_of_house", "en": "back of the house", "pic": "🏠🔙", "ne": "घरको पछाडि", "rom": "gharko pachhadi", "doteli": "" },
+    { "id": "half_burnt_wood", "en": "half burnt wood", "pic": "🪵🔥", "ne": "अधजलेको दाउरा", "rom": "adhajaleko daura", "doteli": "" },
+    { "id": "shade", "en": "shade", "pic": "⛱️", "ne": "छाया", "rom": "chhaya", "doteli": "" },
+    { "id": "place", "en": "place", "pic": "📍", "ne": "ठाउँ", "rom": "thaun", "doteli": "" },
+    { "id": "star", "en": "star", "pic": "⭐", "ne": "तारा", "rom": "taara", "doteli": "" },
+    { "id": "noise", "en": "noise", "pic": "📢", "ne": "आवाज", "rom": "aawaj", "doteli": "" },
+    { "id": "many", "en": "many", "pic": "🍎🍎🍎", "ne": "धेरै", "rom": "dherai", "doteli": "" },
+    { "id": "mother", "en": "mother", "pic": "👩", "ne": "आमा", "rom": "aama", "doteli": "" },
+    { "id": "myself", "en": "myself", "pic": "🙋", "ne": "आफैँ", "rom": "aafai", "doteli": "" },
+    { "id": "old", "en": "old", "pic": "👴", "ne": "बूढो", "rom": "budho", "doteli": "" },
+    { "id": "animal", "en": "animal", "pic": "🐾", "ne": "जनावर", "rom": "janawar", "doteli": "" },
+    { "id": "fat", "en": "fat", "pic": "🐘", "ne": "मोटो", "rom": "moto", "doteli": "" }
+  ],
+  "lessons": [
+    { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry"] },
+    { "id": "body", "title": "Body and animals", "icon": "🐒", "cards": ["ear", "leg", "fish", "monkey"] },
+    { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon"] },
+    { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place"] },
+    { "id": "sky", "title": "Sky, sound, amounts", "icon": "⭐", "cards": ["star", "noise", "many"] },
+    { "id": "doteli-starters", "title": "Doteli starter words", "icon": "🌱", "cards": ["mother", "myself", "old", "animal", "fat"] }
+  ]
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Sabda Ghar">
+  <rect width="512" height="512" rx="96" fill="#0f4c45"/>
+  <circle cx="256" cy="256" r="188" fill="#f6c65b"/>
+  <text
+    x="256"
+    y="354"
+    text-anchor="middle"
+    fill="#0f4c45"
+    font-family="Noto Sans Devanagari, Nirmala UI, sans-serif"
+    font-size="260"
+    font-weight="700"
+  >श</text>
+</svg>
