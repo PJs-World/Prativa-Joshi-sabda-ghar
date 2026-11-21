@@ -1,7 +1,25 @@
 [
-  { "id": "1", "en": "water", "ne": "पानी", "rom": "pani", "doteli": [] },
-  { "id": "2", "en": "house", "ne": "घर", "rom": "ghar", "doteli": [] },
-  { "id": "3", "en": "mountain", "ne": "पहाड", "rom": "pahad", "doteli": [] },
+  {
+    "id": "1",
+    "en": "water",
+    "ne": "पानी",
+    "rom": "pani",
+    "doteli": []
+  },
+  {
+    "id": "2",
+    "en": "house",
+    "ne": "घर",
+    "rom": "ghar",
+    "doteli": []
+  },
+  {
+    "id": "3",
+    "en": "mountain",
+    "ne": "पहाड",
+    "rom": "pahad",
+    "doteli": []
+  },
   {
     "id": "4",
     "en": "mother",
@@ -354,10 +372,42 @@
       }
     ]
   },
-  { "id": "26", "en": "tomorrow", "ne": "भोलि", "rom": "bholi", "doteli": [] },
-  { "id": "27", "en": "child", "ne": "बच्चा", "rom": "bacha", "doteli": [] },
-  { "id": "28", "en": "banana", "ne": "केरा", "rom": "kera", "doteli": [] },
-  { "id": "29", "en": "go", "ne": "जानु", "rom": "janu", "doteli": [] },
+  {
+    "id": "26",
+    "en": "tomorrow",
+    "ne": "भोलि",
+    "rom": "bholi",
+    "doteli": []
+  },
+  {
+    "id": "27",
+    "en": "child",
+    "ne": "बच्चा",
+    "rom": "bacha",
+    "doteli": []
+  },
+  {
+    "id": "28",
+    "en": "banana",
+    "ne": "केरा",
+    "rom": "kera",
+    "doteli": []
+  },
+  {
+    "id": "29",
+    "en": "go",
+    "ne": "जानु",
+    "rom": "janu",
+    "doteli": [
+      {
+        "id": "1795282397343",
+        "text": "जा",
+        "region": "Dotali",
+        "contributor": "",
+        "verified": false
+      }
+    ]
+  },
   {
     "id": "30",
     "en": "buffalo",
@@ -374,12 +424,48 @@
       }
     ]
   },
-  { "id": "31", "en": "back of the house", "ne": "घरको पछाडि", "rom": "gharko pachhadi", "doteli": [] },
-  { "id": "32", "en": "bird", "ne": "चरा", "rom": "chara", "doteli": [] },
-  { "id": "33", "en": "bowl", "ne": "कचौरा", "rom": "kachhaura", "doteli": [] },
-  { "id": "34", "en": "plate", "ne": "थाल", "rom": "thal", "doteli": [] },
-  { "id": "35", "en": "to sleep", "ne": "सुत्नु", "rom": "sutnu", "doteli": [] },
-  { "id": "36", "en": "your", "ne": "तिम्रो", "rom": "timro", "doteli": [] },
+  {
+    "id": "31",
+    "en": "back of the house",
+    "ne": "घरको पछाडि",
+    "rom": "gharko pachhadi",
+    "doteli": []
+  },
+  {
+    "id": "32",
+    "en": "bird",
+    "ne": "चरा",
+    "rom": "chara",
+    "doteli": []
+  },
+  {
+    "id": "33",
+    "en": "bowl",
+    "ne": "कचौरा",
+    "rom": "kachhaura",
+    "doteli": []
+  },
+  {
+    "id": "34",
+    "en": "plate",
+    "ne": "थाल",
+    "rom": "thal",
+    "doteli": []
+  },
+  {
+    "id": "35",
+    "en": "to sleep",
+    "ne": "सुत्नु",
+    "rom": "sutnu",
+    "doteli": []
+  },
+  {
+    "id": "36",
+    "en": "your",
+    "ne": "तिम्रो",
+    "rom": "timro",
+    "doteli": []
+  },
   {
     "id": "37",
     "en": "bear",
@@ -460,8 +546,32 @@
       }
     ]
   },
-  { "id": "42", "en": "walking", "ne": "हिँड्नु", "rom": "hindnu", "doteli": [] },
-  { "id": "43", "en": "roaming", "ne": "घुम्नु", "rom": "ghumnu", "doteli": [] },
-  { "id": "44", "en": "travelling", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": [] },
-  { "id": "45", "en": "volunteer", "ne": "स्वयंसेवक", "rom": "swayamsewak", "doteli": [] }
+  {
+    "id": "42",
+    "en": "walking",
+    "ne": "हिँड्नु",
+    "rom": "hindnu",
+    "doteli": []
+  },
+  {
+    "id": "43",
+    "en": "roaming",
+    "ne": "घुम्नु",
+    "rom": "ghumnu",
+    "doteli": []
+  },
+  {
+    "id": "44",
+    "en": "travelling",
+    "ne": "यात्रा गर्नु",
+    "rom": "yatra garnu",
+    "doteli": []
+  },
+  {
+    "id": "45",
+    "en": "volunteer",
+    "ne": "स्वयंसेवक",
+    "rom": "swayamsewak",
+    "doteli": []
+  }
 ]
