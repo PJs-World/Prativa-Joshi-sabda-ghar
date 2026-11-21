@@ -462,5 +462,6 @@
   },
   { "id": "42", "en": "walking", "ne": "हिँड्नु", "rom": "hindnu", "doteli": [] },
   { "id": "43", "en": "roaming", "ne": "घुम्नु", "rom": "ghumnu", "doteli": [] },
-  { "id": "44", "en": "travelling", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": [] }
+  { "id": "44", "en": "travelling", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": [] },
+  { "id": "45", "en": "volunteer", "ne": "स्वयंसेवक", "rom": "swayamsewak", "doteli": [] }
 ]

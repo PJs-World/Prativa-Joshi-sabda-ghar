@@ -158,7 +158,11 @@ async function handleApi(req, res, url) {
   const audioMatch = url.pathname.match(/^\/api\/words\/([^/]+)\/doteli\/([^/]+)\/audio$/);
   if (audioMatch) {
     if (req.method !== "POST") return sendJson(res, 405, { error: "Method not allowed." });
-    if (!isAdmin(req)) return sendJson(res, 403, { error: "Reviewer access is required to attach recordings." });
+    const reviewerUpload = isAdmin(req);
+    const communityRecording = req.headers["x-audio-source"] === "recording";
+    if (!reviewerUpload && !communityRecording) {
+      return sendJson(res, 403, { error: "Reviewer access or a community recording is required." });
+    }
     const word = words.find((item) => item.id === audioMatch[1]);
     if (!word) return sendJson(res, 404, { error: "Word not found." });
     const entry = word.doteli.find((item) => item.id === audioMatch[2]);
@@ -175,6 +179,10 @@ async function handleApi(req, res, url) {
     await fs.promises.writeFile(filePath, body, { flag: "wx" });
     const previousAudioUrl = entry.audioUrl;
     entry.audioUrl = "/audio/" + filename;
+    entry.audioVerified = reviewerUpload && !communityRecording;
+    const audioContributor = String(req.headers["x-audio-contributor"] || "").trim().slice(0, 40);
+    if (audioContributor) entry.audioContributor = audioContributor;
+    else delete entry.audioContributor;
     try { writeWords(words); }
     catch (error) {
       await fs.promises.unlink(filePath).catch((cleanupError) => console.error("Could not remove incomplete audio upload:", cleanupError));
@@ -183,6 +191,20 @@ async function handleApi(req, res, url) {
     try { await removeAudioFile(previousAudioUrl); }
     catch (error) { console.error("Could not remove replaced audio file:", error); }
     return sendJson(res, 201, { audioUrl: entry.audioUrl });
+  }
+
+  const audioReviewMatch = url.pathname.match(/^\/api\/words\/([^/]+)\/doteli\/([^/]+)\/audio\/verify$/);
+  if (audioReviewMatch) {
+    if (req.method !== "PATCH") return sendJson(res, 405, { error: "Method not allowed." });
+    if (!isAdmin(req)) return sendJson(res, 403, { error: "Reviewer access is required." });
+    const word = words.find((item) => item.id === audioReviewMatch[1]);
+    if (!word) return sendJson(res, 404, { error: "Word not found." });
+    const entry = word.doteli.find((item) => item.id === audioReviewMatch[2]);
+    if (!entry) return sendJson(res, 404, { error: "Doteli entry not found." });
+    if (!entry.audioUrl) return sendJson(res, 409, { error: "This Doteli entry has no voice recording." });
+    entry.audioVerified = true;
+    writeWords(words);
+    return sendJson(res, 200, entry);
   }
 
   const doteliMatch = url.pathname.match(/^\/api\/words\/([^/]+)\/doteli(?:\/([^/]+))?$/);

@@ -133,6 +133,10 @@ ul#list{list-style:none;margin:0;padding:0;display:grid;gap:12px}
 .variants{display:grid;gap:6px;flex:1;min-width:0}
 .variant{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .voice-player{width:min(100%,360px);height:40px}
+.audio-status{font-size:.85rem;color:var(--muted)}
+.verified-audio{font-weight:700;color:var(--ok)}
+.recording-panel{display:flex;align-items:center;gap:8px;flex-wrap:wrap;width:100%;margin-top:6px}
+.recording-status{font-size:.9rem;color:var(--muted)}
 .audio-upload{display:inline-flex;align-items:center;gap:6px;color:var(--primary);font-size:.85rem;font-weight:700}
 .audio-upload input{max-width:230px;font:inherit}
 .edit{display:grid;gap:8px;width:100%;margin-top:4px}

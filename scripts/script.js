@@ -12,6 +12,7 @@ let words = [];
 let allWords = [];
 let editingId = null;
 let adminKey = sessionStorage.getItem("sg-admin") || "";
+let activeRecording = null;
 
 // Treat common Devanagari spelling variants as the same when searching.
 function norm(s) {
@@ -98,6 +99,10 @@ function btn(label, act, wid, vid, extra) {
 }
 
 function render() {
+  if (activeRecording) {
+    discardRecording(activeRecording);
+    say("Recording canceled because the dictionary list changed.");
+  }
   const onlyMissing = $("onlyMissing").checked;
   const list = $("list"); list.textContent = "";
   let shown = 0;
@@ -141,9 +146,19 @@ function render() {
         player.src = d.audioUrl;
         player.setAttribute("aria-label", "Doteli pronunciation of " + w.en);
         v.appendChild(player);
+        if (d.audioVerified === false) {
+          v.appendChild(el("span", "audio-status", "Community recording · awaiting review"));
+        } else if (d.audioVerified === true) {
+          v.appendChild(el("span", "audio-status verified-audio", "✓ Voice verified"));
+        }
+        if (d.audioContributor) v.appendChild(el("span", "by", "recorded by " + d.audioContributor));
       }
+      const record = btn(d.audioUrl ? "Record again" : "Record voice", "record-audio", w.id, d.id);
+      record.setAttribute("aria-label", "Record a Doteli voice for " + w.en);
+      v.appendChild(record);
       if (adminKey) {
         if (!d.verified) v.appendChild(btn("Verify", "verify", w.id, d.id));
+        if (d.audioUrl && d.audioVerified === false) v.appendChild(btn("Verify recording", "verify-audio", w.id, d.id));
         v.appendChild(btn("Remove", "remove", w.id, d.id, "small danger"));
         const uploadLabel = el("label", "audio-upload", d.audioUrl ? "Replace voice recording" : "Attach voice recording");
         const upload = el("input");
@@ -195,11 +210,143 @@ function speak(text) {
   speechSynthesis.speak(u);
 }
 
+function stopTracks(stream) {
+  if (stream) stream.getTracks().forEach((track) => track.stop());
+}
+
+function releaseRecording(state, removePanel) {
+  if (state.timer) clearTimeout(state.timer);
+  stopTracks(state.stream);
+  if (state.previewUrl) URL.revokeObjectURL(state.previewUrl);
+  if (removePanel && state.panel) state.panel.remove();
+  if (state.button) state.button.disabled = false;
+  if (activeRecording === state) activeRecording = null;
+}
+
+function discardRecording(state) {
+  state.cancelled = true;
+  if (state.recorder && state.recorder.state !== "inactive") state.recorder.stop();
+  releaseRecording(state, true);
+}
+
+function showRecordingPreview(state) {
+  if (state.cancelled) return;
+  if (!state.button.isConnected) { discardRecording(state); return; }
+  if (state.timer) clearTimeout(state.timer);
+  stopTracks(state.stream);
+  const blob = new Blob(state.chunks, { type: state.recorder.mimeType || "audio/webm" });
+  if (!blob.size || blob.size > 5 * 1024 * 1024) {
+    say(blob.size ? "Recording is too large. Please record a shorter clip." : "No audio was captured. Please try again.");
+    discardRecording(state);
+    return;
+  }
+  state.blob = blob;
+  state.previewUrl = URL.createObjectURL(blob);
+  state.panel.textContent = "";
+  state.panel.append(
+    el("span", "recording-status", "Preview your voice before sharing:"),
+    Object.assign(el("audio", "voice-player"), { controls: true, src: state.previewUrl }),
+    btn("Submit recording", "save-recording", state.wid, state.vid, "small primary"),
+    btn("Discard", "discard-recording", state.wid, state.vid)
+  );
+}
+
+async function startVoiceRecording(button, wid, vid) {
+  if (activeRecording) { say("Finish or discard the current recording first."); return; }
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia || !window.MediaRecorder) {
+    say("Voice recording is not supported by this browser. Try a current browser over HTTPS or localhost.");
+    return;
+  }
+  if (!confirm("Your voice will be uploaded and publicly playable for this Doteli word. Continue?")) return;
+
+  let stream;
+  let state;
+  try {
+    stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+    if (!button.isConnected) { stopTracks(stream); return; }
+    const mimeType = typeof MediaRecorder.isTypeSupported === "function"
+      ? ["audio/webm;codecs=opus", "audio/ogg;codecs=opus", "audio/mp4"]
+        .find((type) => MediaRecorder.isTypeSupported(type))
+      : "";
+    const recorder = new MediaRecorder(stream, mimeType ? { mimeType } : undefined);
+    const panel = el("div", "recording-panel");
+    const status = el("span", "recording-status", "Recording… speak clearly (maximum 30 seconds).");
+    const stop = btn("Stop recording", "stop-recording", wid, vid, "small danger");
+    panel.append(status, stop);
+    button.after(panel);
+    button.disabled = true;
+
+    state = { button, panel, status, recorder, stream, chunks: [], wid, vid, timer: null, previewUrl: "", cancelled: false };
+    activeRecording = state;
+    recorder.addEventListener("dataavailable", (event) => {
+      if (event.data && event.data.size) state.chunks.push(event.data);
+    });
+    recorder.addEventListener("stop", () => showRecordingPreview(state));
+    recorder.addEventListener("error", () => {
+      if (activeRecording === state) discardRecording(state);
+      say("The recording stopped unexpectedly. Please try again.");
+    });
+    recorder.start();
+    state.timer = setTimeout(() => {
+      if (activeRecording === state && recorder.state === "recording") {
+        status.textContent = "30 seconds reached. Finishing recording…";
+        recorder.stop();
+      }
+    }, 30000);
+    say("Recording started. You can listen before submitting.");
+  } catch (error) {
+    if (state) discardRecording(state);
+    else stopTracks(stream);
+    say(error.name === "NotAllowedError"
+      ? "Microphone permission was denied. Allow microphone access to record."
+      : "Could not start recording: " + error.message);
+  }
+}
+
+async function submitRecording(state) {
+  if (activeRecording !== state || !state.blob) return;
+  try {
+    const response = await fetch("/api/words/" + encodeURIComponent(state.wid) + "/doteli/" + encodeURIComponent(state.vid) + "/audio", {
+      method: "POST",
+      headers: {
+        "Content-Type": state.blob.type || "audio/webm",
+        "x-audio-source": "recording",
+        "x-audio-contributor": localStorage.getItem("sg-name") || ""
+      },
+      body: state.blob
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw Object.assign(new Error(result.error || "Recording upload failed."), { status: response.status });
+    releaseRecording(state, true);
+    say("Thank you! Your voice is available and awaiting review.");
+    await loadWords();
+  } catch (error) { say(error.status ? error.message : OFFLINE_MSG); }
+}
+
+window.addEventListener("pagehide", () => {
+  if (!activeRecording) return;
+  const state = activeRecording;
+  state.cancelled = true;
+  if (state.recorder && state.recorder.state !== "inactive") state.recorder.stop();
+  releaseRecording(state, true);
+});
+
 $("list").addEventListener("click", async (ev) => {
   const b = ev.target.closest("button"); if (!b) return;
   const { act, wid, vid } = b.dataset;
   try {
     if (act === "speak") { const w = words.find((x) => x.id === wid); if (w) speak(w.ne); return; }
+    if (act === "record-audio") { await startVoiceRecording(b, wid, vid); return; }
+    if (act === "stop-recording") {
+      if (activeRecording && activeRecording.wid === wid && activeRecording.vid === vid && activeRecording.recorder.state === "recording") {
+        b.disabled = true;
+        activeRecording.status.textContent = "Finishing recording…";
+        activeRecording.recorder.stop();
+      }
+      return;
+    }
+    if (act === "save-recording") { await submitRecording(activeRecording); return; }
+    if (act === "discard-recording") { if (activeRecording) discardRecording(activeRecording); say("Recording discarded."); return; }
     if (act === "add") { editingId = wid; say(""); render(); return; }
     if (act === "cancel") { editingId = null; render(); return; }
     if (act === "submit") {
@@ -210,6 +357,10 @@ $("list").addEventListener("click", async (ev) => {
       editingId = null; say("Thank you! Your Doteli word was added and is waiting for review.");
     }
     if (act === "verify") { await api("/api/words/" + wid + "/doteli/" + vid, { method: "PATCH" }); say("Marked as verified."); }
+    if (act === "verify-audio") {
+      await api("/api/words/" + wid + "/doteli/" + vid + "/audio/verify", { method: "PATCH" });
+      say("Voice recording verified.");
+    }
     if (act === "remove") {
       if (!confirm("Remove this entry?")) return;
       await api("/api/words/" + wid + "/doteli/" + vid, { method: "DELETE" }); say("Entry removed.");

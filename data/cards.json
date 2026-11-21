@@ -58,10 +58,11 @@
     { "id": "chick", "en": "chick", "pic": "🐣", "ne": "चल्ला", "rom": "challa", "doteli": "" },
     { "id": "walking", "en": "walking", "pic": "🚶", "ne": "हिँड्नु", "rom": "hindnu", "doteli": "" },
     { "id": "roaming", "en": "roaming", "pic": "🧭", "ne": "घुम्नु", "rom": "ghumnu", "doteli": "" },
-    { "id": "travelling", "en": "travelling", "pic": "🚆", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": "" }
+    { "id": "travelling", "en": "travelling", "pic": "🚆", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": "" },
+    { "id": "volunteer", "en": "volunteer", "pic": "🤝", "ne": "स्वयंसेवक", "rom": "swayamsewak", "doteli": "" }
   ],
   "lessons": [
-    { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry", "mother", "myself", "old", "daughter", "energetic", "child", "your"] },
+    { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry", "mother", "myself", "old", "daughter", "energetic", "child", "your", "volunteer"] },
     { "id": "body", "title": "Body and animals", "icon": "🐒", "cards": ["ear", "leg", "fish", "monkey", "animal", "dog", "pig", "buffalo", "bird", "bear", "chick"] },
     { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon", "come", "yesterday", "tomorrow", "go", "walking", "roaming", "travelling"] },
     { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place", "basket", "store", "garden", "bridge", "bowl", "plate", "farm"] },
