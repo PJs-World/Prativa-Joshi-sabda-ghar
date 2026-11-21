@@ -1165,7 +1165,7 @@ ul#list {
 }
 
 .about > h2,.how > h2,.contribute > h2 {
-  margin-left: max(0px,calc(50% - 560px))
+  margin-left: max(0px,calc(50% - 536px))
 }
 
 .contribute .section-eyebrow {
