@@ -231,8 +231,10 @@ button.danger {
   gap: clamp(36px,7vw,92px);
   align-items: center;
   padding: clamp(54px,7vw,104px) clamp(24px,7vw,100px) clamp(54px,6vw,88px);
-  background: radial-gradient(ellipse at 82% 18%,rgba(83,190,135,.28),transparent 34%),
-    radial-gradient(ellipse at 12% 100%,rgba(15,76,58,.65),transparent 44%),
+  background: radial-gradient(ellipse at 82% 18%,rgba(83,190,135,.28),transparent 34%),
+
+    radial-gradient(ellipse at 12% 100%,rgba(15,76,58,.65),transparent 44%),
+
     linear-gradient(125deg,#104e3b 0%,#126747 52%,#16826c 100%);
   color: var(--hero-text)
 }
@@ -661,9 +663,12 @@ button.danger {
 .band {
   height: 14px;
   background-color: var(--primary);
-  background-image: linear-gradient(135deg,var(--accent) 25%,transparent 25%),
-    linear-gradient(225deg,var(--accent) 25%,transparent 25%),
-    linear-gradient(315deg,var(--accent) 25%,transparent 25%),
+  background-image: linear-gradient(135deg,var(--accent) 25%,transparent 25%),
+
+    linear-gradient(225deg,var(--accent) 25%,transparent 25%),
+
+    linear-gradient(315deg,var(--accent) 25%,transparent 25%),
+
     linear-gradient(45deg,var(--accent) 25%,transparent 25%);
   background-size: 28px 14px;
   background-position: -14px 0,-14px 0,0 0,0 0
