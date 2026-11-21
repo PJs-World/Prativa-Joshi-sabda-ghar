@@ -4,6 +4,8 @@ const http = require("http");
 const fs = require("fs");
 const path = require("path");
 const crypto = require("crypto");
+require("dotenv").config();
+const { v2: cloudinary } = require("cloudinary");
 
 const ROOT = __dirname;
 const DATA_FILE = path.join(ROOT, "data", "words.json");
@@ -11,6 +13,12 @@ const AUDIO_DIR = path.join(ROOT, "audio");
 const MAX_AUDIO_BYTES = 5 * 1024 * 1024;
 const PORT = Number(process.env.PORT || 4173);
 const ADMIN_KEY = process.env.ADMIN_KEY || "sabda";
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+  secure: true
+});
 const AUDIO_TYPES = {
   "audio/mpeg": "mp3",
   "audio/mp3": "mp3",
@@ -102,9 +110,34 @@ function audioFilePath(audioUrl) {
 
 async function removeAudioFile(audioUrl) {
   const filePath = audioFilePath(audioUrl);
-  if (!filePath) return;
-  try { await fs.promises.unlink(filePath); }
-  catch (error) { if (error.code !== "ENOENT") throw error; }
+  if (filePath) {
+    try { await fs.promises.unlink(filePath); }
+    catch (error) { if (error.code !== "ENOENT") throw error; }
+  }
+}
+
+async function removeCloudinaryAudio(publicId) {
+  if (!publicId) return;
+  await cloudinary.uploader.destroy(publicId, { resource_type: "video", invalidate: true });
+}
+
+function uploadCloudinaryAudio(body, extension) {
+  if (!process.env.CLOUDINARY_CLOUD_NAME || !process.env.CLOUDINARY_API_KEY || !process.env.CLOUDINARY_API_SECRET) {
+    return Promise.reject(Object.assign(new Error("Cloudinary is not configured on the server."), { statusCode: 503 }));
+  }
+  return new Promise((resolve, reject) => {
+    const publicId = crypto.randomBytes(16).toString("hex");
+    const stream = cloudinary.uploader.upload_stream({
+      resource_type: "video",
+      public_id: publicId,
+      folder: "sabda-ghar/audio",
+      overwrite: false
+    }, (error, result) => {
+      if (error) return reject(error);
+      resolve(result);
+    });
+    stream.end(body);
+  });
 }
 
 function norm(value) {
@@ -173,22 +206,24 @@ async function handleApi(req, res, url) {
     const body = await readAudioBody(req);
     if (!body.length) return sendJson(res, 400, { error: "The audio file is empty." });
 
-    await fs.promises.mkdir(AUDIO_DIR, { recursive: true });
-    const filename = crypto.randomBytes(16).toString("hex") + "." + extension;
-    const filePath = path.join(AUDIO_DIR, filename);
-    await fs.promises.writeFile(filePath, body, { flag: "wx" });
+    const uploaded = await uploadCloudinaryAudio(body, extension);
     const previousAudioUrl = entry.audioUrl;
-    entry.audioUrl = "/audio/" + filename;
+    const previousPublicId = entry.audioPublicId;
+    entry.audioUrl = uploaded.secure_url;
+    entry.audioPublicId = uploaded.public_id;
     entry.audioVerified = reviewerUpload && !communityRecording;
     const audioContributor = String(req.headers["x-audio-contributor"] || "").trim().slice(0, 40);
     if (audioContributor) entry.audioContributor = audioContributor;
     else delete entry.audioContributor;
     try { writeWords(words); }
     catch (error) {
-      await fs.promises.unlink(filePath).catch((cleanupError) => console.error("Could not remove incomplete audio upload:", cleanupError));
+      await removeCloudinaryAudio(uploaded.public_id).catch((cleanupError) => console.error("Could not remove incomplete Cloudinary upload:", cleanupError));
       throw error;
     }
-    try { await removeAudioFile(previousAudioUrl); }
+    try {
+      if (previousPublicId) await removeCloudinaryAudio(previousPublicId);
+      else await removeAudioFile(previousAudioUrl);
+    }
     catch (error) { console.error("Could not remove replaced audio file:", error); }
     return sendJson(res, 201, { audioUrl: entry.audioUrl });
   }
@@ -239,10 +274,13 @@ async function handleApi(req, res, url) {
       }
       if (req.method === "DELETE") {
         const audioUrl = entry.audioUrl;
+        const audioPublicId = entry.audioPublicId;
         word.doteli = word.doteli.filter((item) => item.id !== entry.id);
         writeWords(words);
-        try { await removeAudioFile(audioUrl); }
-        catch (error) { console.error("Could not remove Doteli audio file:", error); }
+        try {
+          if (audioPublicId) await removeCloudinaryAudio(audioPublicId);
+          else await removeAudioFile(audioUrl);
+        } catch (error) { console.error("Could not remove Doteli audio file:", error); }
         return sendJson(res, 200, { ok: true });
       }
     }

@@ -139,7 +139,7 @@ function render() {
         source.rel = "noopener noreferrer";
         v.appendChild(source);
       }
-      if (typeof d.audioUrl === "string" && d.audioUrl.startsWith("/audio/")) {
+      if (typeof d.audioUrl === "string" && (d.audioUrl.startsWith("/audio/") || /^https?:\/\//.test(d.audioUrl))) {
         const player = el("audio", "voice-player");
         player.controls = true;
         player.preload = "none";
@@ -160,17 +160,19 @@ function render() {
         if (!d.verified) v.appendChild(btn("Verify", "verify", w.id, d.id));
         if (d.audioUrl && d.audioVerified === false) v.appendChild(btn("Verify recording", "verify-audio", w.id, d.id));
         v.appendChild(btn("Remove", "remove", w.id, d.id, "small danger"));
-        const uploadLabel = el("label", "audio-upload", d.audioUrl ? "Replace voice recording" : "Attach voice recording");
-        const upload = el("input");
-        upload.type = "file";
-        upload.accept = "audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/x-m4a,audio/webm,.mp3,.wav,.ogg,.m4a,.webm";
-        upload.dataset.act = "audio";
-        upload.dataset.wid = w.id;
-        upload.dataset.vid = d.id;
-        upload.setAttribute("aria-label", "Attach a Doteli voice recording for " + w.en);
-        uploadLabel.appendChild(upload);
-        v.appendChild(uploadLabel);
       }
+      const uploadLabel = el("label", "audio-upload",
+        adminKey ? (d.audioUrl ? "Replace voice recording" : "Attach voice recording")
+          : (d.audioUrl ? "Upload a replacement recording" : "Upload personal recording"));
+      const upload = el("input");
+      upload.type = "file";
+      upload.accept = "audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/x-m4a,audio/webm,.mp3,.wav,.ogg,.m4a,.webm";
+      upload.dataset.act = "audio";
+      upload.dataset.wid = w.id;
+      upload.dataset.vid = d.id;
+      upload.setAttribute("aria-label", "Upload a Doteli voice recording for " + w.en);
+      uploadLabel.appendChild(upload);
+      v.appendChild(uploadLabel);
       vars.appendChild(v);
     });
     r2.appendChild(vars);
@@ -378,15 +380,27 @@ $("list").addEventListener("change", async (ev) => {
   if (!file.type) { say("This file type is not supported. Choose MP3, WAV, OGG, M4A, or WebM."); input.value = ""; return; }
 
   const { wid, vid } = input.dataset;
+  const communityUpload = !adminKey;
+  if (communityUpload && !confirm("This audio will be shared publicly for this Doteli word and marked for review. Continue?")) {
+    input.value = "";
+    return;
+  }
   try {
+    const headers = { "Content-Type": file.type };
+    if (communityUpload) {
+      headers["x-audio-source"] = "recording";
+      headers["x-audio-contributor"] = localStorage.getItem("sg-name") || "";
+    } else {
+      headers["x-admin-key"] = adminKey;
+    }
     const response = await fetch("/api/words/" + encodeURIComponent(wid) + "/doteli/" + encodeURIComponent(vid) + "/audio", {
       method: "POST",
-      headers: { "Content-Type": file.type, "x-admin-key": adminKey },
+      headers,
       body: file
     });
     const result = await response.json().catch(() => ({}));
     if (!response.ok) throw Object.assign(new Error(result.error || "Audio upload failed."), { status: response.status });
-    say("Voice recording attached.");
+    say(communityUpload ? "Thank you! Your personal recording is available and awaiting review." : "Voice recording attached.");
     await loadWords();
   } catch (e) { say(e.status ? e.message : OFFLINE_MSG); }
 });
