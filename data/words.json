@@ -353,5 +353,114 @@
         "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/इच्छ्याबालो"
       }
     ]
-  }
+  },
+  { "id": "26", "en": "tomorrow", "ne": "भोलि", "rom": "bholi", "doteli": [] },
+  { "id": "27", "en": "child", "ne": "बच्चा", "rom": "bacha", "doteli": [] },
+  { "id": "28", "en": "banana", "ne": "केरा", "rom": "kera", "doteli": [] },
+  { "id": "29", "en": "go", "ne": "जानु", "rom": "janu", "doteli": [] },
+  {
+    "id": "30",
+    "en": "buffalo",
+    "ne": "भैँसी",
+    "rom": "bhainsi",
+    "doteli": [
+      {
+        "id": "33",
+        "text": "भैसो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/पशु"
+      }
+    ]
+  },
+  { "id": "31", "en": "back of the house", "ne": "घरको पछाडि", "rom": "gharko pachhadi", "doteli": [] },
+  { "id": "32", "en": "bird", "ne": "चरा", "rom": "chara", "doteli": [] },
+  { "id": "33", "en": "bowl", "ne": "कचौरा", "rom": "kachhaura", "doteli": [] },
+  { "id": "34", "en": "plate", "ne": "थाल", "rom": "thal", "doteli": [] },
+  { "id": "35", "en": "to sleep", "ne": "सुत्नु", "rom": "sutnu", "doteli": [] },
+  { "id": "36", "en": "your", "ne": "तिम्रो", "rom": "timro", "doteli": [] },
+  {
+    "id": "37",
+    "en": "bear",
+    "ne": "भालु",
+    "rom": "bhalu",
+    "doteli": [
+      {
+        "id": "34",
+        "text": "भालु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/भालु"
+      }
+    ]
+  },
+  {
+    "id": "38",
+    "en": "orange",
+    "ne": "सुन्तला",
+    "rom": "suntala",
+    "doteli": [
+      {
+        "id": "35",
+        "text": "सुन्तला",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/सुन्तला"
+      }
+    ]
+  },
+  {
+    "id": "39",
+    "en": "ghee",
+    "ne": "घिउ",
+    "rom": "ghiu",
+    "doteli": [
+      {
+        "id": "36",
+        "text": "घी",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/घी"
+      }
+    ]
+  },
+  {
+    "id": "40",
+    "en": "farm",
+    "ne": "खेत",
+    "rom": "khet",
+    "doteli": [
+      {
+        "id": "37",
+        "text": "खेत",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/खेत"
+      }
+    ]
+  },
+  {
+    "id": "41",
+    "en": "chick",
+    "ne": "चल्ला",
+    "rom": "challa",
+    "doteli": [
+      {
+        "id": "38",
+        "text": "छउना",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/छउना"
+      }
+    ]
+  },
+  { "id": "42", "en": "walking", "ne": "हिँड्नु", "rom": "hindnu", "doteli": [] },
+  { "id": "43", "en": "roaming", "ne": "घुम्नु", "rom": "ghumnu", "doteli": [] },
+  { "id": "44", "en": "travelling", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": [] }
 ]

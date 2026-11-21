@@ -3,18 +3,37 @@
 const http = require("http");
 const fs = require("fs");
 const path = require("path");
+const crypto = require("crypto");
 
 const ROOT = __dirname;
 const DATA_FILE = path.join(ROOT, "data", "words.json");
+const AUDIO_DIR = path.join(ROOT, "audio");
+const MAX_AUDIO_BYTES = 5 * 1024 * 1024;
 const PORT = Number(process.env.PORT || 4173);
 const ADMIN_KEY = process.env.ADMIN_KEY || "sabda";
+const AUDIO_TYPES = {
+  "audio/mpeg": "mp3",
+  "audio/mp3": "mp3",
+  "audio/wav": "wav",
+  "audio/x-wav": "wav",
+  "audio/wave": "wav",
+  "audio/ogg": "ogg",
+  "audio/mp4": "m4a",
+  "audio/x-m4a": "m4a",
+  "audio/webm": "webm"
+};
 const MIME = {
   ".html": "text/html; charset=utf-8",
   ".css": "text/css; charset=utf-8",
   ".js": "text/javascript; charset=utf-8",
   ".json": "application/json; charset=utf-8",
   ".svg": "image/svg+xml",
-  ".png": "image/png"
+  ".png": "image/png",
+  ".mp3": "audio/mpeg",
+  ".wav": "audio/wav",
+  ".ogg": "audio/ogg",
+  ".m4a": "audio/mp4",
+  ".webm": "audio/webm"
 };
 
 function readWords() {
@@ -48,6 +67,44 @@ function readBody(req) {
       catch (error) { reject(error); }
     });
   });
+}
+
+function readAudioBody(req) {
+  return new Promise((resolve, reject) => {
+    let size = 0;
+    let tooLarge = false;
+    const chunks = [];
+    req.on("data", (chunk) => {
+      if (tooLarge) return;
+      size += chunk.length;
+      if (size > MAX_AUDIO_BYTES) {
+        tooLarge = true;
+        chunks.length = 0;
+        return;
+      }
+      chunks.push(chunk);
+    });
+    req.on("end", () => {
+      if (tooLarge) {
+        reject(Object.assign(new Error("Audio files must be 5 MB or smaller."), { statusCode: 413 }));
+      } else {
+        resolve(Buffer.concat(chunks));
+      }
+    });
+    req.on("error", reject);
+  });
+}
+
+function audioFilePath(audioUrl) {
+  const match = String(audioUrl || "").match(/^\/audio\/([a-f0-9]{32}\.(?:mp3|wav|ogg|m4a|webm))$/);
+  return match ? path.join(AUDIO_DIR, match[1]) : null;
+}
+
+async function removeAudioFile(audioUrl) {
+  const filePath = audioFilePath(audioUrl);
+  if (!filePath) return;
+  try { await fs.promises.unlink(filePath); }
+  catch (error) { if (error.code !== "ENOENT") throw error; }
 }
 
 function norm(value) {
@@ -98,6 +155,36 @@ async function handleApi(req, res, url) {
     return sendJson(res, 201, word);
   }
 
+  const audioMatch = url.pathname.match(/^\/api\/words\/([^/]+)\/doteli\/([^/]+)\/audio$/);
+  if (audioMatch) {
+    if (req.method !== "POST") return sendJson(res, 405, { error: "Method not allowed." });
+    if (!isAdmin(req)) return sendJson(res, 403, { error: "Reviewer access is required to attach recordings." });
+    const word = words.find((item) => item.id === audioMatch[1]);
+    if (!word) return sendJson(res, 404, { error: "Word not found." });
+    const entry = word.doteli.find((item) => item.id === audioMatch[2]);
+    if (!entry) return sendJson(res, 404, { error: "Doteli entry not found." });
+    const contentType = String(req.headers["content-type"] || "").split(";")[0].toLowerCase();
+    const extension = AUDIO_TYPES[contentType];
+    if (!extension) return sendJson(res, 415, { error: "Choose an MP3, WAV, OGG, M4A, or WebM audio file." });
+    const body = await readAudioBody(req);
+    if (!body.length) return sendJson(res, 400, { error: "The audio file is empty." });
+
+    await fs.promises.mkdir(AUDIO_DIR, { recursive: true });
+    const filename = crypto.randomBytes(16).toString("hex") + "." + extension;
+    const filePath = path.join(AUDIO_DIR, filename);
+    await fs.promises.writeFile(filePath, body, { flag: "wx" });
+    const previousAudioUrl = entry.audioUrl;
+    entry.audioUrl = "/audio/" + filename;
+    try { writeWords(words); }
+    catch (error) {
+      await fs.promises.unlink(filePath).catch((cleanupError) => console.error("Could not remove incomplete audio upload:", cleanupError));
+      throw error;
+    }
+    try { await removeAudioFile(previousAudioUrl); }
+    catch (error) { console.error("Could not remove replaced audio file:", error); }
+    return sendJson(res, 201, { audioUrl: entry.audioUrl });
+  }
+
   const doteliMatch = url.pathname.match(/^\/api\/words\/([^/]+)\/doteli(?:\/([^/]+))?$/);
   if (doteliMatch) {
     const word = words.find((item) => item.id === doteliMatch[1]);
@@ -129,8 +216,11 @@ async function handleApi(req, res, url) {
         return sendJson(res, 200, entry);
       }
       if (req.method === "DELETE") {
+        const audioUrl = entry.audioUrl;
         word.doteli = word.doteli.filter((item) => item.id !== entry.id);
         writeWords(words);
+        try { await removeAudioFile(audioUrl); }
+        catch (error) { console.error("Could not remove Doteli audio file:", error); }
         return sendJson(res, 200, { ok: true });
       }
     }
@@ -143,7 +233,7 @@ const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
   if (url.pathname.startsWith("/api/")) {
     try { await handleApi(req, res, url); }
-    catch (error) { sendJson(res, error instanceof SyntaxError ? 400 : 500, { error: error.message || "Server error." }); }
+    catch (error) { sendJson(res, error.statusCode || (error instanceof SyntaxError ? 400 : 500), { error: error.message || "Server error." }); }
     return;
   }
 

@@ -134,9 +134,27 @@ function render() {
         source.rel = "noopener noreferrer";
         v.appendChild(source);
       }
+      if (typeof d.audioUrl === "string" && d.audioUrl.startsWith("/audio/")) {
+        const player = el("audio", "voice-player");
+        player.controls = true;
+        player.preload = "none";
+        player.src = d.audioUrl;
+        player.setAttribute("aria-label", "Doteli pronunciation of " + w.en);
+        v.appendChild(player);
+      }
       if (adminKey) {
         if (!d.verified) v.appendChild(btn("Verify", "verify", w.id, d.id));
         v.appendChild(btn("Remove", "remove", w.id, d.id, "small danger"));
+        const uploadLabel = el("label", "audio-upload", d.audioUrl ? "Replace voice recording" : "Attach voice recording");
+        const upload = el("input");
+        upload.type = "file";
+        upload.accept = "audio/mpeg,audio/mp3,audio/wav,audio/x-wav,audio/ogg,audio/mp4,audio/x-m4a,audio/webm,.mp3,.wav,.ogg,.m4a,.webm";
+        upload.dataset.act = "audio";
+        upload.dataset.wid = w.id;
+        upload.dataset.vid = d.id;
+        upload.setAttribute("aria-label", "Attach a Doteli voice recording for " + w.en);
+        uploadLabel.appendChild(upload);
+        v.appendChild(uploadLabel);
       }
       vars.appendChild(v);
     });
@@ -196,6 +214,28 @@ $("list").addEventListener("click", async (ev) => {
       if (!confirm("Remove this entry?")) return;
       await api("/api/words/" + wid + "/doteli/" + vid, { method: "DELETE" }); say("Entry removed.");
     }
+    await loadWords();
+  } catch (e) { say(e.status ? e.message : OFFLINE_MSG); }
+});
+
+$("list").addEventListener("change", async (ev) => {
+  const input = ev.target;
+  if (!(input instanceof HTMLInputElement) || input.dataset.act !== "audio") return;
+  const file = input.files && input.files[0];
+  if (!file) return;
+  if (file.size > 5 * 1024 * 1024) { say("Audio files must be 5 MB or smaller."); input.value = ""; return; }
+  if (!file.type) { say("This file type is not supported. Choose MP3, WAV, OGG, M4A, or WebM."); input.value = ""; return; }
+
+  const { wid, vid } = input.dataset;
+  try {
+    const response = await fetch("/api/words/" + encodeURIComponent(wid) + "/doteli/" + encodeURIComponent(vid) + "/audio", {
+      method: "POST",
+      headers: { "Content-Type": file.type, "x-admin-key": adminKey },
+      body: file
+    });
+    const result = await response.json().catch(() => ({}));
+    if (!response.ok) throw Object.assign(new Error(result.error || "Audio upload failed."), { status: response.status });
+    say("Voice recording attached.");
     await loadWords();
   } catch (e) { say(e.status ? e.message : OFFLINE_MSG); }
 });
