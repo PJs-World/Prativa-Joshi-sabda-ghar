@@ -65,7 +65,8 @@ button.danger{border-color:var(--danger);color:var(--danger)}
   right:-17%;top:-54%;box-shadow:0 0 0 48px rgba(255,255,255,.025),0 0 0 96px rgba(255,255,255,.02)}
 .hero::after{width:320px;height:320px;left:-180px;bottom:-220px;border-radius:50%;background:rgba(255,212,91,.12);filter:blur(2px)}
 .hero-text,.hero-visual{position:relative;max-width:590px;width:100%;justify-self:center}
-.hero-visual{isolation:isolate;padding:24px 10px 16px}
+.hero-text{animation:hero-enter .7s ease-out both}
+.hero-visual{isolation:isolate;padding:24px 10px 16px;animation:hero-appear .9s .08s ease-out both,hero-drift 8s 1s ease-in-out infinite}
 .hero-visual::before,.hero-visual::after{position:absolute;z-index:-1;content:"";pointer-events:none}
 .hero-visual::before{inset:42px 12px 27px 28px;border:1px solid rgba(255,255,255,.28);border-radius:34px;
   background:linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.025));transform:rotate(-5deg)}
@@ -123,6 +124,10 @@ button.danger{border-color:var(--danger);color:var(--danger)}
 .hc-word.empty{font-size:1rem;font-weight:600;color:var(--muted);border:1px dashed var(--border);border-radius:10px;padding:7px 12px}
 .hc-foot{display:flex;align-items:center;gap:9px;margin-top:14px;font-size:.85rem;color:var(--muted)}
 .hc-foot-dot{flex:none;width:8px;height:8px;border-radius:50%;background:#e2af2b;box-shadow:0 0 0 4px rgba(226,175,43,.13)}
+
+@keyframes hero-enter{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes hero-appear{from{opacity:0}to{opacity:1}}
+@keyframes hero-drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
 
 .band{height:14px;background-color:var(--primary);
   background-image:
@@ -260,4 +265,5 @@ footer{background:var(--hero-bg);color:var(--hero-text)}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none;transition:none}
   .btn,button,.hero-card,.entry,.steps li,.card{transition:none}
+  .hero-text,.hero-visual{animation:none}
 }
