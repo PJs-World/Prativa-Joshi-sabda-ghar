@@ -17,14 +17,6 @@
   --hero-muted: #d1eadc;
   --card-bg: #fff;
   --card-text: #19372a;
-  --archive-paper: #f6f1e7;
-  --archive-ink: #173d2d;
-  --archive-muted: #5c7063;
-  --archive-clay: #a9583c;
-  --archive-panel: #174c3a;
-  --archive-panel-mid: #2a7051;
-  --archive-rule: #e3d6c0;
-  --archive-tile: rgba(255,255,255,.64);
   --display-font: Georgia,"Noto Serif Devanagari","Nirmala UI",serif;
   --radius: 16px;
   color-scheme: light;
@@ -46,14 +38,6 @@
     --hero-muted: #afd2bc;
     --card-bg: #18271f;
     --card-text: #f0f7ef;
-    --archive-paper: #142219;
-    --archive-ink: #eef5ed;
-    --archive-muted: #b0c2b5;
-    --archive-clay: #e2a27c;
-    --archive-panel: #0f3628;
-    --archive-panel-mid: #195640;
-    --archive-rule: #375144;
-    --archive-tile: rgba(255,255,255,.06);
     color-scheme: dark;
   }
 }
@@ -248,10 +232,10 @@ button.danger {
   gap: clamp(36px,7vw,92px);
   align-items: center;
   padding: clamp(54px,7vw,104px) clamp(24px,7vw,100px) clamp(54px,6vw,88px);
-  background: radial-gradient(circle at 1px 1px,rgba(23,61,45,.055) 1px,transparent 1.5px) 0 0/24px 24px,
-    radial-gradient(ellipse at 82% 18%,rgba(169,88,60,.14),transparent 34%),
-    var(--archive-paper);
-  color: var(--archive-ink)
+  background: radial-gradient(ellipse at 82% 18%,rgba(83,190,135,.28),transparent 34%),
+    radial-gradient(ellipse at 12% 100%,rgba(15,76,58,.65),transparent 44%),
+    linear-gradient(125deg,#104e3b 0%,#126747 52%,#16826c 100%);
+  color: var(--hero-text)
 }
 
 .hero::before,.hero::after {
@@ -264,11 +248,11 @@ button.danger {
 .hero::before {
   width: min(54vw,700px);
   aspect-ratio: 1;
-  border: 1px solid rgba(23,61,45,.13);
+  border: 1px solid rgba(255,255,255,.11);
   border-radius: 50%;
   right: -17%;
   top: -54%;
-  box-shadow: 0 0 0 48px rgba(23,61,45,.035),0 0 0 96px rgba(23,61,45,.025)
+  box-shadow: 0 0 0 48px rgba(255,255,255,.025),0 0 0 96px rgba(255,255,255,.02)
 }
 
 .hero::after {
@@ -277,7 +261,7 @@ button.danger {
   left: -180px;
   bottom: -220px;
   border-radius: 50%;
-  background: rgba(169,88,60,.13);
+  background: rgba(255,212,91,.12);
   filter: blur(2px)
 }
 
@@ -307,10 +291,9 @@ button.danger {
 
 .hero-visual::before {
   inset: 42px 12px 27px 28px;
-  border: 1px solid rgba(255,255,255,.32);
+  border: 1px solid rgba(255,255,255,.28);
   border-radius: 34px;
-  background: linear-gradient(145deg,var(--archive-panel),var(--archive-panel-mid));
-  box-shadow: 0 28px 60px rgba(13,57,38,.2);
+  background: linear-gradient(145deg,rgba(255,255,255,.11),rgba(255,255,255,.025));
   transform: rotate(-5deg)
 }
 
@@ -320,7 +303,7 @@ button.danger {
   right: 2%;
   top: 0;
   border-radius: 50%;
-  background: radial-gradient(circle,rgba(255,212,91,.3),rgba(255,212,91,0) 70%)
+  background: radial-gradient(circle,rgba(255,212,91,.25),rgba(255,212,91,0) 70%)
 }
 
 .hero-landscape {
@@ -343,10 +326,10 @@ button.danger {
   align-items: center;
   gap: 7px;
   padding: 7px 12px;
-  border: 1px solid var(--archive-rule);
+  border: 1px solid rgba(24,134,75,.12);
   border-radius: 999px;
   background: var(--card-bg);
-  color: var(--archive-panel);
+  color: var(--primary);
   box-shadow: 0 8px 22px rgba(8,48,33,.2);
   font-size: .72rem;
   font-weight: 800;
@@ -362,15 +345,15 @@ button.danger {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  color: var(--archive-clay);
+  color: #ffe08a;
   font-size: .94rem;
   font-weight: 700;
   letter-spacing: .02em;
   margin-bottom: 22px;
   padding: 8px 13px;
-  border: 1px solid var(--archive-rule);
+  border: 1px solid rgba(255,255,255,.2);
   border-radius: 999px;
-  background: var(--archive-tile)
+  background: rgba(255,255,255,.07)
 }
 
 .kicker-dot {
@@ -391,14 +374,14 @@ button.danger {
 }
 
 .hero h1 em {
-  color: var(--archive-clay)
+  color: var(--accent)
 }
 
 .lead {
   margin: 24px 0 30px;
   font-size: clamp(1.08rem,1.5vw,1.25rem);
   line-height: 1.7;
-  color: var(--archive-muted);
+  color: var(--hero-muted);
   max-width: 48ch
 }
 
@@ -407,12 +390,11 @@ button.danger {
   grid-template-columns: minmax(0,1fr) auto;
   gap: 8px;
   padding: 7px;
-  background: var(--surface);
-  border: 1px solid var(--archive-rule);
+  background: rgba(255,255,255,.96);
   border-radius: 999px;
   max-width: 560px;
   margin: 0 0 14px;
-  box-shadow: 0 14px 32px rgba(31,57,42,.12)
+  box-shadow: 0 16px 36px rgba(6,55,35,.22)
 }
 
 .hero-search input {
@@ -420,13 +402,13 @@ button.danger {
   background: transparent;
   border-radius: 999px;
   padding: 12px 14px;
-  color: var(--archive-ink);
+  color: #19372a;
   box-shadow: none
 }
 
 .hero-search input:focus {
   outline: 0;
-  box-shadow: inset 0 0 0 2px var(--archive-panel)
+  box-shadow: inset 0 0 0 2px #18864b
 }
 
 .hero-search button {
@@ -454,20 +436,20 @@ button.danger {
 }
 
 .hero .btn.primary {
-  background: var(--archive-panel);
-  border-color: var(--archive-panel);
-  color: #fff;
-  box-shadow: 0 5px 0 rgba(13,57,38,.24)
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-text);
+  box-shadow: 0 5px 0 rgba(68,53,13,.4)
 }
 
 .hero .btn.ghost {
-  color: var(--archive-ink);
-  border-color: var(--archive-rule);
-  background: var(--archive-tile)
+  color: var(--hero-text);
+  border-color: rgba(255,255,255,.55);
+  background: rgba(255,255,255,.045)
 }
 
 .hero .btn.ghost:hover {
-  background: rgba(169,88,60,.1)
+  background: rgba(255,255,255,.12)
 }
 
 .hero-note {
@@ -475,12 +457,12 @@ button.danger {
   align-items: center;
   gap: 8px;
   margin-top: 16px;
-  color: var(--archive-muted);
+  color: var(--hero-muted);
   font-size: .9rem
 }
 
 .hero-note span {
-  color: var(--archive-clay)
+  color: var(--accent)
 }
 
 .live {
@@ -493,9 +475,9 @@ button.danger {
 .live div {
   min-width: 104px;
   padding: 11px 15px;
-  border: 1px solid var(--archive-rule);
+  border: 1px solid rgba(255,255,255,.16);
   border-radius: 15px;
-  background: var(--archive-tile);
+  background: rgba(255,255,255,.07);
   backdrop-filter: blur(8px)
 }
 
@@ -507,12 +489,12 @@ button.danger {
   display: block;
   font-size: clamp(1.6rem,2.4vw,2.15rem);
   line-height: 1.1;
-  color: var(--archive-ink)
+  color: var(--hero-text)
 }
 
 .live div span {
   font-size: .78rem;
-  color: var(--archive-muted);
+  color: var(--hero-muted);
   letter-spacing: .04em
 }
 
@@ -695,7 +677,7 @@ button.danger {
 
 .section-eyebrow {
   margin-bottom: 10px;
-  color: var(--archive-clay);
+  color: var(--primary);
   font-size: .77rem;
   font-weight: 800;
   letter-spacing: .14em;
