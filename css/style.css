@@ -190,6 +190,8 @@ footer{background:var(--hero-bg);color:var(--hero-text)}
   .search-submit{width:100%}
   .about-grid p,.steps li{padding:17px}
   .entry{padding:15px}
+  .audio-upload{min-width:0;max-width:100%;flex-wrap:wrap}
+  .audio-upload input{width:100%;max-width:230px}
 }
 
 /* ===== Scroll reveal ===== */
@@ -204,8 +206,7 @@ footer{background:var(--hero-bg);color:var(--hero-text)}
   .about-grid,.steps,.cards{grid-template-columns:1fr}
   section{padding:56px 20px}
   .nav{flex-wrap:wrap;gap:8px 16px}
-  .nav nav{order:3;width:100%;min-width:0;margin-left:0;gap:18px;overflow-x:auto;flex-wrap:nowrap;font-size:.95rem;scrollbar-width:none}
-  .nav nav::-webkit-scrollbar{display:none}
+  .nav nav{order:3;width:100%;min-width:0;margin-left:0;gap:7px 14px;overflow:visible;flex-wrap:wrap;font-size:.85rem}
   .nav nav a{flex:none;white-space:nowrap}
   .nav-actions{margin-left:auto}
 }
