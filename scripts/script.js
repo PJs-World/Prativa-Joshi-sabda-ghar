@@ -130,7 +130,9 @@ function render() {
       const v = el("div", "variant");
       const t = el("span", "ne", d.text); t.lang = "ne"; v.appendChild(t);
       if (d.region) v.appendChild(el("span", "region", d.region));
-      v.appendChild(el("span", d.verified ? "ver" : "com", d.verified ? "✓ Verified" : "Community-added"));
+      const statusClass = d.verified ? "ver" : d.draft ? "draft" : "com";
+      const statusText = d.verified ? "✓ Verified" : d.draft ? "Unverified draft" : "Community-added";
+      v.appendChild(el("span", statusClass, statusText));
       if (d.contributor) v.appendChild(el("span", "by", "by " + d.contributor));
       if (d.sourceUrl && d.sourceUrl.startsWith("https://incubator.wikimedia.org/wiki/Wt/dty/")) {
         const source = el("a", "source", "Wiktionary source");

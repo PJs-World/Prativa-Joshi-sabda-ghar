@@ -1000,9 +1000,14 @@ ul#list {
   color: var(--ok)
 }
 
-.com,.by,.source {
+.com,.by,.source,.draft {
   font-size: .85rem;
   color: var(--muted)
+}
+
+.draft {
+  color: var(--primary);
+  font-weight: 700
 }
 
 .missing {

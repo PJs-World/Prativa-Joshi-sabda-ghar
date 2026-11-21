@@ -4,21 +4,48 @@
     "en": "water",
     "ne": "पानी",
     "rom": "pani",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "39",
+        "text": "पानी",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "2",
     "en": "house",
     "ne": "घर",
     "rom": "ghar",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "40",
+        "text": "घर",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "3",
     "en": "mountain",
     "ne": "पहाड",
     "rom": "pahad",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "41",
+        "text": "डाँडो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "4",
@@ -401,21 +428,48 @@
     "en": "tomorrow",
     "ne": "भोलि",
     "rom": "bholi",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "42",
+        "text": "भोलि",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "27",
     "en": "child",
     "ne": "बच्चा",
     "rom": "bacha",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "43",
+        "text": "बच्चो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "28",
     "en": "banana",
     "ne": "केरा",
     "rom": "kera",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "44",
+        "text": "केरा",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "29",
@@ -459,42 +513,96 @@
     "en": "back of the house",
     "ne": "घरको पछाडि",
     "rom": "gharko pachhadi",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "45",
+        "text": "घरपछाडि",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "32",
     "en": "bird",
     "ne": "चरा",
     "rom": "chara",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "46",
+        "text": "चरा",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "33",
     "en": "bowl",
     "ne": "कचौरा",
     "rom": "kachhaura",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "47",
+        "text": "कचौरौ",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "34",
     "en": "plate",
     "ne": "थाल",
     "rom": "thal",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "48",
+        "text": "थाल",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "35",
     "en": "to sleep",
     "ne": "सुत्नु",
     "rom": "sutnu",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "49",
+        "text": "सुतणु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "36",
     "en": "your",
     "ne": "तिम्रो",
     "rom": "timro",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "50",
+        "text": "तेरो",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "37",
@@ -581,27 +689,63 @@
     "en": "walking",
     "ne": "हिँड्नु",
     "rom": "hindnu",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "51",
+        "text": "हिँडणु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "43",
     "en": "roaming",
     "ne": "घुम्नु",
     "rom": "ghumnu",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "52",
+        "text": "घुमणु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "44",
     "en": "travelling",
     "ne": "यात्रा गर्नु",
     "rom": "yatra garnu",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "53",
+        "text": "फिरणु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   },
   {
     "id": "45",
     "en": "volunteer",
     "ne": "स्वयंसेवक",
     "rom": "swayamsewak",
-    "doteli": []
+    "doteli": [
+      {
+        "id": "54",
+        "text": "स्वयंसेवक",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   }
 ]
