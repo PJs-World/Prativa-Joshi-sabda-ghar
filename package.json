@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node server.js"
   },
-  "devDependencies": {
-    "sharp": "^0.34.5"
+  "dependencies": {
+    "cloudinary": "^2.8.0",
+    "dotenv": "^17.2.3"
   },
   "devDependencies": {
     "sharp": "^0.35.5"

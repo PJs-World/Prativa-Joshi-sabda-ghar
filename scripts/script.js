@@ -139,7 +139,7 @@ function render() {
         source.rel = "noopener noreferrer";
         v.appendChild(source);
       }
-      if (typeof d.audioUrl === "string" && d.audioUrl.startsWith("/audio/")) {
+      if (typeof d.audioUrl === "string" && (d.audioUrl.startsWith("/audio/") || /^https?:\/\//.test(d.audioUrl))) {
         const player = el("audio", "voice-player");
         player.controls = true;
         player.preload = "none";
