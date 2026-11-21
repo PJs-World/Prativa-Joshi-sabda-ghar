@@ -293,7 +293,10 @@
         "region": "",
         "contributor": "",
         "verified": false,
-        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/सुंगर"
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/सुंगर",
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795294584/sabda-ghar/audio/feaf0f98b2eee20e8e17303df449845f.webm",
+        "audioPublicId": "sabda-ghar/audio/feaf0f98b2eee20e8e17303df449845f",
+        "audioVerified": false
       }
     ]
   },
@@ -425,7 +428,10 @@
         "text": "जा",
         "region": "Dotali",
         "contributor": "",
-        "verified": false
+        "verified": false,
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795294480/sabda-ghar/audio/0ba186b13b7fabd581d0a2a01882e50a.webm",
+        "audioPublicId": "sabda-ghar/audio/0ba186b13b7fabd581d0a2a01882e50a",
+        "audioVerified": false
       }
     ]
   },
@@ -441,7 +447,10 @@
         "region": "",
         "contributor": "",
         "verified": false,
-        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/पशु"
+        "sourceUrl": "https://incubator.wikimedia.org/wiki/Wt/dty/पशु",
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795294546/sabda-ghar/audio/1694c6018abdda05c44396ac689b1c60.webm",
+        "audioPublicId": "sabda-ghar/audio/1694c6018abdda05c44396ac689b1c60",
+        "audioVerified": false
       }
     ]
   },
