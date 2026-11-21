@@ -186,6 +186,7 @@ footer{background:var(--hero-bg);color:var(--hero-text)}
   .live{gap:18px;margin-top:28px}
   .live div b{font-size:1.6rem}
   .hero-card{padding:20px}
+  .hc-topline{flex-wrap:wrap}
   .search-form{grid-template-columns:1fr}
   .search-submit{width:100%}
   .about-grid p,.steps li{padding:17px}
