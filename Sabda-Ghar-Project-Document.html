@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sabda Ghar - Project Document</title>
+  <style>
+    :root{--green:#105f43;--green2:#16826c;--cream:#fffdf6;--gold:#ffd45b;--ink:#19372a;--muted:#5e7165;--border:#dfe8df}
+    *{box-sizing:border-box} body{margin:0;background:#edf2ed;color:var(--ink);font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.55}
+    .page{width:210mm;min-height:297mm;margin:18mm auto;padding:18mm;background:var(--cream);box-shadow:0 10px 40px rgba(20,50,35,.16)}
+    .cover{min-height:260mm;display:flex;flex-direction:column;justify-content:center;border:14px solid var(--green);border-radius:26px;padding:22mm;background:radial-gradient(circle at 90% 10%,rgba(255,212,91,.28),transparent 23%),linear-gradient(145deg,#f8fbf7,#edf6ed)}
+    .eyebrow{color:var(--green2);font-size:13pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .cover h1{max-width:12ch;margin:12mm 0 5mm;color:var(--green);font-family:Georgia,serif;font-size:44pt;line-height:1.02}
+    .tagline{max-width:18cm;color:var(--muted);font-size:18pt}.url{margin-top:18mm;width:fit-content;padding:3mm 5mm;border-radius:999px;background:var(--gold);color:#392800;font-weight:700}
+    h2{margin:12mm 0 5mm;padding-bottom:3mm;border-bottom:3px solid var(--gold);color:var(--green);font-size:24pt;break-after:avoid} h3{margin:7mm 0 2mm;color:var(--green2);font-size:15pt;break-after:avoid}
+    p{margin:2mm 0 4mm} ul,ol{margin:2mm 0 5mm;padding-left:7mm} li{margin:1mm 0}
+    blockquote{margin:7mm 0;padding:5mm 7mm;border-left:5px solid var(--gold);background:#f2f7ef;font-size:15pt;font-family:Georgia,serif}
+    table{width:100%;margin:5mm 0;border-collapse:collapse;font-size:10pt} th,td{border:1px solid var(--border);padding:2.5mm;text-align:left;vertical-align:top} th{background:var(--green);color:white}
+    pre{margin:5mm 0;padding:5mm;border-radius:10px;background:#173628;color:#f5fbf6;white-space:pre-wrap;font-size:9pt}
+    .closing{margin-top:12mm;padding:8mm;border-radius:16px;background:var(--green);color:white;text-align:center;font-size:16pt}
+    .print-note{position:fixed;right:20px;bottom:20px;z-index:10;padding:10px 16px;border:0;border-radius:999px;background:var(--green);color:white;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+    @media print{body{background:white}.page{width:auto;min-height:0;margin:0;box-shadow:none}.print-note{display:none}.cover{break-after:page}}
+  </style>
+</head>
+<body>
+  <button class="print-note" onclick="window.print()">Print / Save as PDF</button>
+  <main class="page">
+    <section class="cover">
+      <div class="eyebrow">Community Language Project</div>
+      <h1>Sabda Ghar</h1>
+      <div class="tagline">A community-powered English, Nepali and Doteli dictionary for preserving every word and every voice.</div>
+      <div class="url">http://127.0.0.1:4173</div>
+    </section>
+
+    <h2>Executive Summary</h2>
+    <p>Sabda Ghar means "House of Words." It is a digital community dictionary designed to preserve and teach Doteli, the language of Nepal's Sudurpashchim Province.</p>
+    <p>It connects English, Nepali and Doteli in one searchable learning system. Users can search words, listen to recordings, add regional forms, contribute audio and learn vocabulary through picture cards.</p>
+
+    <h2>1. Problem</h2>
+    <p>Doteli is widely spoken in everyday conversation, but it has limited written and digital learning resources. Many regional words live mainly in speech and are passed between relatives and communities.</p>
+    <ul>
+      <li>Lack of accessible digital dictionaries</li><li>Few standard tools for Doteli learning</li>
+      <li>Regional differences in vocabulary and pronunciation</li><li>Limited audio resources</li>
+      <li>Risk of vocabulary loss among younger generations</li><li>Few platforms allowing native-speaker contributions</li>
+    </ul>
+
+    <h2>2. Inspiration</h2>
+    <blockquote>Every word carries family memory, place and identity.</blockquote>
+    <p>The project places language preservation in the hands of the community. It is inspired by community encyclopedias, audio archives, visual learning applications and Nepal's linguistic diversity.</p>
+
+    <h2>3. Solution</h2>
+    <h3>Dictionary</h3><p>Users search English, Nepali, Roman Nepali or Doteli and view multiple regional Doteli forms.</p>
+    <h3>Community contributions</h3><p>Users add Doteli text, a district or area, a contributor name and an optional recording.</p>
+    <h3>Verification</h3><p>Reviewer mode lets trusted users verify text and recordings and remove inappropriate content.</p>
+    <h3>Learning</h3><p>The Learn section uses picture cards, lesson categories, XP, hearts and unlockable progression.</p>
+
+    <h2>4. Live Demonstration</h2>
+    <p><strong>URL:</strong> http://127.0.0.1:4173</p>
+    <ol>
+      <li>Open the home page and explain the mission.</li><li>Search for <strong>water</strong> or <strong>पानी</strong>.</li>
+      <li>Show English, Nepali and Doteli translations.</li><li>Play available Nepali or Doteli audio.</li>
+      <li>Filter for words missing a Doteli form.</li><li>Add a Doteli contribution.</li>
+      <li>Open Learn and complete a picture-based lesson.</li><li>Demonstrate offline installation and cached progress.</li>
+    </ol>
+    <table>
+      <tr><th>Resource</th><th>Current size</th></tr>
+      <tr><td>English dictionary words</td><td>45</td></tr><tr><td>Doteli text entries</td><td>45</td></tr>
+      <tr><td>Entries with audio</td><td>42</td></tr><tr><td>Verified entries</td><td>0 in the current draft dataset</td></tr>
+      <tr><td>Picture cards</td><td>60</td></tr><tr><td>Learning lessons</td><td>7</td></tr>
+    </table>
+
+    <h2>5. Language and Data</h2>
+    <table>
+      <tr><th>Language</th><th>Purpose</th></tr>
+      <tr><td>English</td><td>Source language and learner access</td></tr>
+      <tr><td>Nepali</td><td>National bridge language and pronunciation support</td></tr>
+      <tr><td>Doteli</td><td>Core community language being documented</td></tr>
+      <tr><td>Roman Nepali</td><td>Accessible spelling and search support</td></tr>
+    </table>
+    <p>The main word collection is stored in <strong>data/words.json</strong>. Lessons use <strong>data/cards.json</strong>. Doteli entries contain text, region, contributor, verification status and optional audio metadata.</p>
+
+    <h2>6. Technology Stack</h2>
+    <h3>Frontend</h3><p>HTML5, CSS3, vanilla JavaScript, browser Speech Synthesis, MediaRecorder and Progressive Web App features.</p>
+    <h3>Backend</h3><p>Node.js using the built-in HTTP module, custom API routes and dotenv configuration.</p>
+    <h3>Storage</h3><p>JSON file storage, browser localStorage and Cloudinary for audio. The prototype does not use XAMPP or SQL.</p>
+    <h3>Offline</h3><p>Service Worker caching, saved word data, PWA installation and a local progress store.</p>
+
+    <h2>7. System Architecture</h2>
+    <pre>Browser
+  ├── Dictionary
+  ├── Learning cards
+  ├── Microphone recording
+  ├── localStorage
+  └── Service Worker
+           ▼
+Node.js HTTP server
+  ├── Static files
+  ├── Word, contribution and reviewer APIs
+  └── Audio API
+           │
+           ├── data/words.json
+           └── Cloudinary audio storage</pre>
+
+    <h2>8. What Makes It Unique</h2>
+    <ul>
+      <li><strong>Community ownership:</strong> native speakers contribute words and voices.</li>
+      <li><strong>Regional variants:</strong> one English word can contain several local forms.</li>
+      <li><strong>Visible verification:</strong> draft, community, verified and audio states are distinct.</li>
+      <li><strong>Voice preservation:</strong> human pronunciation is stored as part of the archive.</li>
+      <li><strong>Game-like learning:</strong> XP, hearts and lessons encourage repeat use.</li>
+      <li><strong>Offline resilience:</strong> cached data remains available with limited connectivity.</li>
+      <li><strong>Lightweight access:</strong> ordinary browsers and phones can run the app.</li>
+    </ul>
+
+    <h2>9. Social Impact</h2>
+    <h3>Cultural preservation</h3><p>Sabda Ghar creates a digital archive before local expressions become limited to a few speakers.</p>
+    <h3>Intergenerational connection</h3><p>Children and young people can learn through family language and community recordings.</p>
+    <h3>Education</h3><p>Teachers and students receive a locally relevant language-learning resource.</p>
+    <h3>Digital inclusion</h3><p>The installable website works on mobile devices without a separate app-store download.</p>
+
+    <h2>10. Future Development</h2>
+    <ul>
+      <li>Expand words, lessons and verified contributors</li><li>Add secure accounts and a moderator dashboard</li>
+      <li>Move to PostgreSQL or Supabase</li><li>Add district search and regional voice filters</li>
+      <li>Add sentence examples and cultural stories</li><li>Build a public API for schools and researchers</li>
+      <li>Support additional scripts and interface languages</li><li>Partner with schools and cultural organizations</li>
+    </ul>
+
+    <h2>11. Team</h2>
+    <table>
+      <tr><th>Team Member</th><th>Responsibility</th></tr>
+      <tr><td>[Name]</td><td>Project lead and coordination</td></tr><tr><td>[Name]</td><td>Frontend design and development</td></tr>
+      <tr><td>[Name]</td><td>Backend and API development</td></tr><tr><td>[Name]</td><td>Doteli language research and review</td></tr>
+      <tr><td>[Name]</td><td>Audio, testing and quality assurance</td></tr><tr><td>[Name]</td><td>Documentation and presentation</td></tr>
+    </table>
+
+    <h2>12. Closing</h2>
+    <p>Sabda Ghar is more than a digital dictionary. It is a shared space for memory, identity and language continuity.</p>
+    <div class="closing"><strong>Do not let a spoken word disappear just because it has no permanent place on the internet.</strong></div>
+    <p style="text-align:center;margin-top:8mm"><strong>Sabda Ghar — Every word has a home.</strong></p>
+  </main>
+</body>
+</html>
