@@ -50,8 +50,8 @@
         "contributor": "",
         "verified": false,
         "draft": true,
-        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795326785/sabda-ghar/audio/8bfb2a0653792c6a24d12e6bc28a7907.webm",
-        "audioPublicId": "sabda-ghar/audio/8bfb2a0653792c6a24d12e6bc28a7907",
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795347909/sabda-ghar/audio/82a1651d02a453e4e4eadaa05a548769.webm",
+        "audioPublicId": "sabda-ghar/audio/82a1651d02a453e4e4eadaa05a548769",
         "audioVerified": false
       }
     ]
@@ -865,6 +865,13 @@
     "en": "ox",
     "ne": "गोरु",
     "rom": "goru",
+    "doteli": []
+  },
+  {
+    "id": "48",
+    "en": "eating",
+    "ne": "खाँदै",
+    "rom": "khaandai",
     "doteli": []
   }
 ]

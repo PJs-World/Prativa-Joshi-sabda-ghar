@@ -57,6 +57,7 @@
     { "id": "farm", "en": "farm", "pic": "🌾", "ne": "खेत", "rom": "khet", "doteli": "" },
     { "id": "chick", "en": "chick", "pic": "🐣", "ne": "चल्ला", "rom": "challa", "doteli": "" },
     { "id": "eat", "en": "eat", "pic": "🍽️", "ne": "खानु", "rom": "khanu", "doteli": "" },
+    { "id": "eating", "en": "eating", "pic": "🍽️", "ne": "खाँदै", "rom": "khaandai", "doteli": "" },
     { "id": "ox", "en": "ox", "pic": "🐂", "ne": "गोरु", "rom": "goru", "doteli": "" },
     { "id": "walking", "en": "walking", "pic": "🚶", "ne": "हिँड्नु", "rom": "hindnu", "doteli": "" },
     { "id": "roaming", "en": "roaming", "pic": "🧭", "ne": "घुम्नु", "rom": "ghumnu", "doteli": "" },
@@ -66,7 +67,7 @@
   "lessons": [
     { "id": "people", "title": "People and feelings", "icon": "👵", "cards": ["grandmother", "grandfather", "i", "worry", "angry", "mother", "myself", "old", "daughter", "energetic", "child", "your", "volunteer"] },
     { "id": "body", "title": "Body and animals", "icon": "🐒", "cards": ["ear", "leg", "fish", "monkey", "animal", "dog", "pig", "buffalo", "bird", "bear", "chick", "ox"] },
-    { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon", "come", "yesterday", "tomorrow", "go", "walking", "roaming", "travelling"] },
+    { "id": "doing", "title": "Doing and time", "icon": "⏳", "cards": ["to_call", "to_sleep", "fast", "slow", "soon", "come", "yesterday", "tomorrow", "go", "walking", "roaming", "travelling", "eating"] },
     { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place", "basket", "store", "garden", "bridge", "bowl", "plate", "farm"] },
     { "id": "sky", "title": "Sky, sound, amounts", "icon": "⭐", "cards": ["star", "noise", "many", "crow", "three", "bird"] },
     { "id": "doteli-starters", "title": "Doteli starter words", "icon": "🌱", "cards": ["mother", "myself", "old", "animal", "fat"] },
