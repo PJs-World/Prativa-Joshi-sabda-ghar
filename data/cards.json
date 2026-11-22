@@ -56,6 +56,7 @@
     { "id": "ghee", "en": "ghee", "pic": "🧈", "ne": "घिउ", "rom": "ghiu", "doteli": "" },
     { "id": "farm", "en": "farm", "pic": "🌾", "ne": "खेत", "rom": "khet", "doteli": "" },
     { "id": "chick", "en": "chick", "pic": "🐣", "ne": "चल्ला", "rom": "challa", "doteli": "" },
+    { "id": "eat", "en": "eat", "pic": "🍽️", "ne": "खानु", "rom": "khanu", "doteli": "खाणु" },
     { "id": "walking", "en": "walking", "pic": "🚶", "ne": "हिँड्नु", "rom": "hindnu", "doteli": "" },
     { "id": "roaming", "en": "roaming", "pic": "🧭", "ne": "घुम्नु", "rom": "ghumnu", "doteli": "" },
     { "id": "travelling", "en": "travelling", "pic": "🚆", "ne": "यात्रा गर्नु", "rom": "yatra garnu", "doteli": "" },
@@ -68,6 +69,6 @@
     { "id": "house", "title": "Around the house", "icon": "🏠", "cards": ["back_of_house", "half_burnt_wood", "shade", "place", "basket", "store", "garden", "bridge", "bowl", "plate", "farm"] },
     { "id": "sky", "title": "Sky, sound, amounts", "icon": "⭐", "cards": ["star", "noise", "many", "crow", "three", "bird"] },
     { "id": "doteli-starters", "title": "Doteli starter words", "icon": "🌱", "cards": ["mother", "myself", "old", "animal", "fat"] },
-    { "id": "doteli-everyday", "title": "Food, places and time", "icon": "🧭", "cards": ["monkey", "rice_pudding", "mango", "bridge", "onion", "garden", "yesterday", "spice", "banana", "orange", "ghee"] }
+    { "id": "doteli-everyday", "title": "Food, places and time", "icon": "🧭", "cards": ["monkey", "rice_pudding", "mango", "bridge", "onion", "garden", "yesterday", "spice", "banana", "orange", "ghee", "eat"] }
   ]
 }

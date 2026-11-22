@@ -852,5 +852,21 @@
         "audioVerified": false
       }
     ]
+  },
+  {
+    "id": "46",
+    "en": "eat",
+    "ne": "खानु",
+    "rom": "khanu",
+    "doteli": [
+      {
+        "id": "55",
+        "text": "खाणु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   }
 ]
