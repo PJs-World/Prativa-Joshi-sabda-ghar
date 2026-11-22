@@ -290,14 +290,19 @@ async function handleApi(req, res, url) {
 }
 
 const server = http.createServer(async (req, res) => {
-  const url = new URL(req.url, `http://${req.headers.host || "localhost"}`);
+  let url;
+  try { url = new URL(req.url, `http://${req.headers.host || "localhost"}`); }
+  catch (error) { return sendJson(res, 400, { error: "Invalid request URL." }); }
+
   if (url.pathname.startsWith("/api/")) {
     try { await handleApi(req, res, url); }
     catch (error) { sendJson(res, error.statusCode || (error instanceof SyntaxError ? 400 : 500), { error: error.message || "Server error." }); }
     return;
   }
 
-  let pathname = decodeURIComponent(url.pathname);
+  let pathname;
+  try { pathname = decodeURIComponent(url.pathname); }
+  catch (error) { return sendJson(res, 400, { error: "Invalid URL path." }); }
   if (pathname === "/") pathname = "/index.html";
   const filePath = path.resolve(ROOT, "." + pathname);
   if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) {
@@ -320,5 +325,5 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(PORT, "127.0.0.1", () => {
   console.log(`Sabda Ghar running at http://127.0.0.1:${PORT}`);
-  console.log(`Reviewer key: ${ADMIN_KEY}`);
+  console.log("Reviewer access is configured.");
 });

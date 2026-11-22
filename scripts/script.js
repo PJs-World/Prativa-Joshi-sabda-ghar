@@ -52,18 +52,26 @@ function offlineWords() {
 async function loadWords() {
   const q = $("q").value.trim();
   let offline = false;
+  let serverError = false;
   try {
-    words = await api("/api/words?q=" + encodeURIComponent(q));
+    const result = await api("/api/words?q=" + encodeURIComponent(q));
+    if (!Array.isArray(result)) {
+      throw Object.assign(new Error("The server returned invalid word data."), { status: 502 });
+    }
+    words = result;
     if (!q) { allWords = words; cacheSet(words); }
   } catch (e) {
-    offline = true;
-    allWords = offlineWords();
+    serverError = Boolean(e.status);
+    offline = !serverError;
+    const saved = serverError ? cacheGet() : [];
+    allWords = saved.length ? saved : offlineWords();
     const nq = norm(q);
     words = allWords.filter((w) => !nq || searchText(w).includes(nq));
+    if (serverError) say("Could not load the latest words: " + e.message + " Showing the saved copy.");
   }
-  $("net").textContent = offline ? "Offline: saved copy" : "Online";
+  $("net").textContent = offline ? "Offline: saved copy" : serverError ? "Server error: saved copy" : "Online";
   render();
-  loadStats(offline);
+  loadStats(offline || serverError);
 }
 
 async function loadStats(offline) {
