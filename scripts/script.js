@@ -365,8 +365,14 @@ $("list").addEventListener("click", async (ev) => {
     if (act === "cancel") { editingId = null; render(); return; }
     if (act === "submit") {
       const by = $("eBy").value.trim();
+      const doteliText = $("eDo").value.trim();
+      if (!doteliText) {
+        say("Enter the Doteli word before submitting.");
+        $("eDo").focus();
+        return;
+      }
       await api("/api/words/" + wid + "/doteli", { method: "POST",
-        body: JSON.stringify({ text: $("eDo").value, region: $("eReg").value, contributor: by }) });
+        body: JSON.stringify({ text: doteliText, region: $("eReg").value.trim(), contributor: by }) });
       if (by) localStorage.setItem("sg-name", by);
       editingId = null; say("Thank you! Your Doteli word was added and is waiting for review.");
     }
@@ -431,8 +437,15 @@ $("onlyMissing").addEventListener("change", render);
 
 $("addBtn").addEventListener("click", async () => {
   try {
+    const en = $("nEn").value.trim();
+    const ne = $("nNe").value.trim();
+    if (!en || !ne) {
+      say("Enter both the English word and the Nepali word.");
+      (!en ? $("nEn") : $("nNe")).focus();
+      return;
+    }
     await api("/api/words", { method: "POST",
-      body: JSON.stringify({ en: $("nEn").value, ne: $("nNe").value, rom: $("nRom").value }) });
+      body: JSON.stringify({ en, ne, rom: $("nRom").value.trim() }) });
     ["nEn", "nNe", "nRom"].forEach((i) => ($(i).value = ""));
     $("addBox").open = false; say("Word added."); await loadWords();
   } catch (e) { say(e.status ? e.message : OFFLINE_MSG); }
