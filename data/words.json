@@ -868,5 +868,21 @@
         "draft": true
       }
     ]
+  },
+  {
+    "id": "47",
+    "en": "ox",
+    "ne": "गोरु",
+    "rom": "goru",
+    "doteli": [
+      {
+        "id": "56",
+        "text": "गोरु",
+        "region": "",
+        "contributor": "",
+        "verified": false,
+        "draft": true
+      }
+    ]
   }
 ]
