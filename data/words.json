@@ -11,7 +11,10 @@
         "region": "",
         "contributor": "",
         "verified": false,
-        "draft": true
+        "draft": true,
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795326841/sabda-ghar/audio/4a27c469551b16e4e060f2a93547d044.webm",
+        "audioPublicId": "sabda-ghar/audio/4a27c469551b16e4e060f2a93547d044",
+        "audioVerified": false
       }
     ]
   },
@@ -27,7 +30,10 @@
         "region": "",
         "contributor": "",
         "verified": false,
-        "draft": true
+        "draft": true,
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795326962/sabda-ghar/audio/071e735dc4b8bbb4166ea940b0b73c8b.webm",
+        "audioPublicId": "sabda-ghar/audio/071e735dc4b8bbb4166ea940b0b73c8b",
+        "audioVerified": false
       }
     ]
   },
@@ -43,7 +49,10 @@
         "region": "",
         "contributor": "",
         "verified": false,
-        "draft": true
+        "draft": true,
+        "audioUrl": "https://res.cloudinary.com/abmfzjei/video/upload/v1795326785/sabda-ghar/audio/8bfb2a0653792c6a24d12e6bc28a7907.webm",
+        "audioPublicId": "sabda-ghar/audio/8bfb2a0653792c6a24d12e6bc28a7907",
+        "audioVerified": false
       }
     ]
   },
