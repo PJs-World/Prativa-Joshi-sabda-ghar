@@ -915,7 +915,7 @@ input[type=text]:focus {
 }
 
 .search-submit {
-  min-width: 120px
+  min-width: 120px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1170,6 +1170,14 @@ ul#list {
   margin-top: 4px
 }
 
+.edit label {
+  display: grid;
+  gap: 4px;
+  color: var(--muted);
+  font-size: .9rem;
+  font-weight: 700
+}
+
 /* ===== Contribute ===== */
 
 .cards {
@@ -1350,7 +1358,7 @@ footer {
     grid-template-columns: 44px minmax(0,1fr)
   }
   .search-submit {
-    width: 100%
+    width: 100%;
     grid-column: 1 / -1
   }
   .about-grid p,.steps li {

@@ -858,31 +858,13 @@
     "en": "eat",
     "ne": "खानु",
     "rom": "khanu",
-    "doteli": [
-      {
-        "id": "55",
-        "text": "खाणु",
-        "region": "",
-        "contributor": "",
-        "verified": false,
-        "draft": true
-      }
-    ]
+    "doteli": []
   },
   {
     "id": "47",
     "en": "ox",
     "ne": "गोरु",
     "rom": "goru",
-    "doteli": [
-      {
-        "id": "56",
-        "text": "गोरु",
-        "region": "",
-        "contributor": "",
-        "verified": false,
-        "draft": true
-      }
-    ]
+    "doteli": []
   }
 ]

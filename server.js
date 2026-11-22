@@ -250,12 +250,16 @@ async function handleApi(req, res, url) {
     if (req.method === "POST" && !doteliMatch[2]) {
       const body = await readBody(req);
       const text = String(body.text || "").trim();
-      if (!text) return sendJson(res, 400, { error: "Enter a Doteli word." });
+      const region = String(body.region || "").trim();
+      const contributor = String(body.contributor || "").trim();
+      if (!text || !region || !contributor) {
+        return sendJson(res, 400, { error: "Enter the Doteli word, district or area, and contributor name." });
+      }
       const entry = {
         id: String(Date.now()),
         text,
-        region: String(body.region || "").trim(),
-        contributor: String(body.contributor || "").trim(),
+        region,
+        contributor,
         verified: false
       };
       word.doteli.push(entry);

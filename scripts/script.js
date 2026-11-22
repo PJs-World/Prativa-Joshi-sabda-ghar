@@ -135,7 +135,7 @@ function render() {
     const r2 = el("div", "row");
     r2.appendChild(el("span", "tag", "Doteli"));
     const vars = el("div", "variants");
-    if (!w.doteli.length) vars.appendChild(el("span", "missing", "Not added yet"));
+    if (!w.doteli.length) vars.appendChild(el("span", "missing", "Waiting for a speaker"));
     w.doteli.forEach((d) => {
       const v = el("div", "variant");
       const t = el("span", "ne", d.text); t.lang = "ne"; v.appendChild(t);
@@ -195,11 +195,24 @@ function render() {
         const i = el("input"); i.type = "text"; i.id = id; i.placeholder = ph;
         i.value = val || ""; i.maxLength = max; i.setAttribute("aria-label", ph); return i;
       };
+      const field = (labelText, input) => {
+        const label = el("label", "", labelText);
+        label.htmlFor = input.id;
+        label.appendChild(input);
+        return label;
+      };
       const row = el("div", "row"); row.style.margin = "0";
       row.append(btn("Submit", "submit", w.id, "", "small primary"), btn("Cancel", "cancel", w.id));
-      box.append(mk("eDo", "Doteli word", "", 60),
-                 mk("eReg", "District or area (for example Doti, Achham)", "", 40),
-                 mk("eBy", "Your name (optional)", localStorage.getItem("sg-name"), 40), row);
+      const doteliInput = mk("eDo", "Doteli word", "", 60);
+      const regionInput = mk("eReg", "District or area (for example Doti, Achham)", "", 40);
+      const contributorInput = mk("eBy", "Your name", localStorage.getItem("sg-name"), 40);
+      [doteliInput, regionInput, contributorInput].forEach((input) => { input.required = true; });
+      box.append(
+        field("Doteli word", doteliInput),
+        field("District or area (for example Doti, Achham)", regionInput),
+        field("Your name", contributorInput),
+        row
+      );
       r2.appendChild(box);
     } else {
       r2.appendChild(btn(w.doteli.length ? "Add another form" : "Add Doteli", "add", w.id));
@@ -366,14 +379,16 @@ $("list").addEventListener("click", async (ev) => {
     if (act === "submit") {
       const by = $("eBy").value.trim();
       const doteliText = $("eDo").value.trim();
-      if (!doteliText) {
-        say("Enter the Doteli word before submitting.");
-        $("eDo").focus();
+      const region = $("eReg").value.trim();
+      if (!doteliText || !region || !by) {
+        const missingInput = !doteliText ? $("eDo") : !region ? $("eReg") : $("eBy");
+        say("Enter the Doteli word, district or area, and your name.");
+        missingInput.focus();
         return;
       }
       await api("/api/words/" + wid + "/doteli", { method: "POST",
-        body: JSON.stringify({ text: doteliText, region: $("eReg").value.trim(), contributor: by }) });
-      if (by) localStorage.setItem("sg-name", by);
+        body: JSON.stringify({ text: doteliText, region, contributor: by }) });
+      localStorage.setItem("sg-name", by);
       editingId = null; say("Thank you! Your Doteli word was added and is waiting for review.");
     }
     if (act === "verify") { await api("/api/words/" + wid + "/doteli/" + vid, { method: "PATCH" }); say("Marked as verified."); }
