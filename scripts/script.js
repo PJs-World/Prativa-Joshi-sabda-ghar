@@ -2,12 +2,6 @@
 // Talks to the server API. If the server can’t be reached, it shows the last saved copy.
 const $ = (id) => document.getElementById(id);
 const CACHE_KEY = "sg-words-cache";
-const SAMPLE = [
-  { id: "1", en: "water", ne: "पानी", rom: "pani", doteli: [] },
-  { id: "2", en: "house", ne: "घर", rom: "ghar", doteli: [] },
-  { id: "3", en: "mountain", ne: "पहाड", rom: "pahad", doteli: [] },
-  { id: "4", en: "mother", ne: "आमा", rom: "aama", doteli: [] },
-];
 let words = [];
 let allWords = [];
 let editingId = null;
@@ -39,13 +33,21 @@ const cacheGet = () => {
   } catch (e) { return []; }
 };
 const cacheSet = (l) => { try { localStorage.setItem(CACHE_KEY, JSON.stringify(l)); } catch (e) {} };
-function offlineWords() {
-  let saved = cacheGet();
-  if (!saved.length) {
-    saved = SAMPLE.map((word) => ({ ...word, doteli: [] }));
-    cacheSet(saved);
+async function offlineWords() {
+  const saved = cacheGet();
+  if (saved.length) return saved;
+
+  // Read the shared JSON file instead of keeping a second copy of every word in this code.
+  try {
+    const response = await fetch("./data/words.json");
+    if (!response.ok) throw new Error("Could not load offline word data.");
+    const sharedWords = await response.json();
+    if (!Array.isArray(sharedWords)) return [];
+    cacheSet(sharedWords);
+    return sharedWords;
+  } catch (error) {
+    return [];
   }
-  return saved;
 }
 
 // ----- load data -----
@@ -64,7 +66,7 @@ async function loadWords() {
     serverError = Boolean(e.status);
     offline = !serverError;
     const saved = serverError ? cacheGet() : [];
-    allWords = saved.length ? saved : offlineWords();
+    allWords = saved.length ? saved : await offlineWords();
     const nq = norm(q);
     words = allWords.filter((w) => !nq || searchText(w).includes(nq));
     if (serverError) say("Could not load the latest words: " + e.message + " Showing the saved copy.");
@@ -450,7 +452,8 @@ $("adminOff").addEventListener("click", () => {
 let heroIdx = 0;
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 function showHeroWord() {
-  const pool = allWords.length ? allWords : SAMPLE;
+  const pool = allWords;
+  if (!pool.length) return;
   const w = pool[heroIdx % pool.length]; heroIdx++;
   const d = (w.doteli || []).find((x) => x.verified) || (w.doteli || [])[0];
   $("hEn").textContent = w.en;
