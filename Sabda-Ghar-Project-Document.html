@@ -6,137 +6,162 @@
   <title>Sabda Ghar - Project Document</title>
   <style>
     :root{--green:#105f43;--green2:#16826c;--cream:#fffdf6;--gold:#ffd45b;--ink:#19372a;--muted:#5e7165;--border:#dfe8df}
-    *{box-sizing:border-box} body{margin:0;background:#edf2ed;color:var(--ink);font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.55}
+    *{box-sizing:border-box} body{margin:0;background:#edf2ed;color:var(--ink);font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.5}
     .page{width:210mm;min-height:297mm;margin:18mm auto;padding:18mm;background:var(--cream);box-shadow:0 10px 40px rgba(20,50,35,.16)}
-    .cover{min-height:260mm;display:flex;flex-direction:column;justify-content:center;border:14px solid var(--green);border-radius:26px;padding:22mm;background:radial-gradient(circle at 90% 10%,rgba(255,212,91,.28),transparent 23%),linear-gradient(145deg,#f8fbf7,#edf6ed)}
-    .eyebrow{color:var(--green2);font-size:13pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-    .cover h1{max-width:12ch;margin:12mm 0 5mm;color:var(--green);font-family:Georgia,serif;font-size:44pt;line-height:1.02}
-    .tagline{max-width:18cm;color:var(--muted);font-size:18pt}.url{margin-top:18mm;width:fit-content;padding:3mm 5mm;border-radius:999px;background:var(--gold);color:#392800;font-weight:700}
+    .cover{position:relative;isolation:isolate;overflow:hidden;min-height:260mm;display:flex;flex-direction:column;justify-content:center;border:8px solid var(--gold);border-radius:26px;padding:22mm;background:radial-gradient(circle at 88% 18%,rgba(255,212,91,.2),transparent 24%),radial-gradient(circle at 10% 100%,rgba(22,130,108,.8),transparent 46%),linear-gradient(145deg,#0b4935,#105f43 58%,#0d4032);color:white}
+    .cover:before,.cover:after{position:absolute;z-index:-1;content:"";border:1px solid rgba(255,255,255,.16);border-radius:50%;pointer-events:none}
+    .cover:before{width:125mm;height:125mm;right:-55mm;top:-35mm;box-shadow:0 0 0 14mm rgba(255,255,255,.035),0 0 0 28mm rgba(255,255,255,.025)}
+    .cover:after{width:55mm;height:55mm;right:20mm;top:24mm;background:radial-gradient(circle,rgba(255,212,91,.24),transparent 70%)}
+    .cover-art{width:min(100%,150mm);height:auto;margin:10mm 0 0;filter:drop-shadow(0 10px 18px rgba(0,0,0,.2))}
+    .eyebrow{color:#ffe08a;font-size:13pt;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+    .cover h1{max-width:12ch;margin:12mm 0 5mm;color:white;font-family:Georgia,serif;font-size:52pt;line-height:1.02;letter-spacing:-.04em;text-shadow:0 8px 26px rgba(0,0,0,.2)}
+    .tagline{max-width:18cm;color:#ffe08a;font-size:22pt;font-family:Georgia,serif;font-weight:700}.url{margin-top:18mm;width:fit-content;padding:3mm 5mm;border-radius:999px;background:var(--gold);color:#392800;font-weight:700}
     h2{margin:12mm 0 5mm;padding-bottom:3mm;border-bottom:3px solid var(--gold);color:var(--green);font-size:24pt;break-after:avoid} h3{margin:7mm 0 2mm;color:var(--green2);font-size:15pt;break-after:avoid}
-    p{margin:2mm 0 4mm} ul,ol{margin:2mm 0 5mm;padding-left:7mm} li{margin:1mm 0}
+    p{margin:2mm 0 3mm} ul,ol{margin:2mm 0 4mm;padding-left:7mm} li{margin:.5mm 0}
+    .picture-row{display:flex;gap:3mm;flex-wrap:wrap;margin:3mm 0 6mm}
+    .picture{flex:1;min-width:27mm;min-height:25mm;margin:0;padding:3mm;border:1px solid var(--border);border-radius:14px;background:linear-gradient(145deg,#fff,#eff7ee);display:flex;align-items:center;justify-content:center;gap:3mm;text-align:center}
+    .picture span{font-size:25pt;line-height:1}.picture figcaption{font-size:9pt;font-weight:700;color:var(--green)}
     blockquote{margin:7mm 0;padding:5mm 7mm;border-left:5px solid var(--gold);background:#f2f7ef;font-size:15pt;font-family:Georgia,serif}
     table{width:100%;margin:5mm 0;border-collapse:collapse;font-size:10pt} th,td{border:1px solid var(--border);padding:2.5mm;text-align:left;vertical-align:top} th{background:var(--green);color:white}
     pre{margin:5mm 0;padding:5mm;border-radius:10px;background:#173628;color:#f5fbf6;white-space:pre-wrap;font-size:9pt}
     .closing{margin-top:12mm;padding:8mm;border-radius:16px;background:var(--green);color:white;text-align:center;font-size:16pt}
     .print-note{position:fixed;right:20px;bottom:20px;z-index:10;padding:10px 16px;border:0;border-radius:999px;background:var(--green);color:white;cursor:pointer;box-shadow:0 6px 20px rgba(0,0,0,.2)}
-    @media print{body{background:white}.page{width:auto;min-height:0;margin:0;box-shadow:none}.print-note{display:none}.cover{break-after:page}}
+    @media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:white}.page{width:auto;min-height:0;margin:0;box-shadow:none}.print-note{display:none}.cover{break-after:page}}
   </style>
 </head>
 <body>
   <button class="print-note" onclick="window.print()">Print / Save as PDF</button>
   <main class="page">
     <section class="cover">
-      <div class="eyebrow">Community Language Project</div>
+      <div class="eyebrow">A community language project</div>
       <h1>Sabda Ghar</h1>
-      <div class="tagline">A community-powered English, Nepali and Doteli dictionary for preserving every word and every voice.</div>
+      <div class="tagline">Every language deserves to live.</div>
+      <p style="max-width:15cm;margin-top:8mm;color:#e3f1e7;font-size:14pt">A community dictionary and learning app for English, Nepali and Doteli.</p>
+      <svg class="cover-art" viewBox="0 0 760 250" role="img" aria-label="Green hills, a village home and speech bubbles">
+        <circle cx="615" cy="58" r="34" fill="#ffd45b"/>
+        <path d="M0 164 112 74l82 74L310 39l116 120 83-77 251 108v60H0Z" fill="#9bc5a2"/>
+        <path d="m0 194 155-74 100 52 137-68 113 78 84-48 171 64v52H0Z" fill="#438b69"/>
+        <path d="M0 218q122-45 247-6t248-5 265 7v34H0Z" fill="#21684e"/>
+        <g transform="translate(95 126)">
+          <path d="m0 37 53-45 53 45v53H0Z" fill="#fffdf6"/>
+          <path d="m-8 39 61-53 61 53-9 10-52-45-52 45Z" fill="#bd7652"/>
+          <rect x="41" y="52" width="25" height="38" rx="3" fill="#105f43"/>
+          <rect x="12" y="49" width="20" height="19" rx="3" fill="#ffd45b"/>
+          <rect x="75" y="49" width="20" height="19" rx="3" fill="#ffd45b"/>
+        </g>
+        <g transform="translate(478 104)">
+          <rect width="104" height="49" rx="18" fill="#fffdf6"/>
+          <path d="m27 48-5 15 22-15" fill="#fffdf6"/>
+          <text x="52" y="32" text-anchor="middle" font-size="24" font-family="Arial,sans-serif" fill="#105f43">शब्द</text>
+        </g>
+        <g transform="translate(594 136)">
+          <rect width="115" height="44" rx="17" fill="#ffd45b"/>
+          <path d="m83 43 14 12-1-15" fill="#ffd45b"/>
+          <text x="55" y="29" text-anchor="middle" font-size="17" font-family="Arial,sans-serif" font-weight="700" fill="#392800">Doteli</text>
+        </g>
+      </svg>
       <div class="url">http://127.0.0.1:4173</div>
     </section>
 
-    <h2>Executive Summary</h2>
-    <p>Sabda Ghar means "House of Words." It is a digital community dictionary designed to preserve and teach Doteli, the language of Nepal's Sudurpashchim Province.</p>
-    <p>It connects English, Nepali and Doteli in one searchable learning system. Users can search words, listen to recordings, add regional forms, contribute audio and learn vocabulary through picture cards.</p>
+    <h2>📖 About Sabda Ghar</h2>
+    <p>Sabda Ghar means "House of Words." It helps people save and learn Doteli.</p>
+    <div class="picture-row">
+      <figure class="picture"><span>🇬🇧</span><figcaption>English</figcaption></figure>
+      <figure class="picture"><span>ने</span><figcaption>Nepali</figcaption></figure>
+      <figure class="picture"><span>🗣️</span><figcaption>Doteli voices</figcaption></figure>
+    </div>
 
-    <h2>1. Problem</h2>
-    <p>Doteli is widely spoken in everyday conversation, but it has limited written and digital learning resources. Many regional words live mainly in speech and are passed between relatives and communities.</p>
+    <h2>1. 🌱 The Problem</h2>
+    <p>Doteli has few learning tools. Many words are passed by speaking. Some may be forgotten if they are not saved.</p>
     <ul>
-      <li>Lack of accessible digital dictionaries</li><li>Few standard tools for Doteli learning</li>
-      <li>Regional differences in vocabulary and pronunciation</li><li>Limited audio resources</li>
-      <li>Risk of vocabulary loss among younger generations</li><li>Few platforms allowing native-speaker contributions</li>
+      <li>Few Doteli dictionaries and lessons</li><li>Different words in different places</li>
+      <li>Few voice recordings</li><li>Young people may miss words from older generations</li>
     </ul>
+    <div class="picture-row"><figure class="picture"><span>👵🏽</span><figcaption>Words from elders</figcaption></figure><figure class="picture"><span>👧🏽</span><figcaption>For the next generation</figcaption></figure></div>
 
-    <h2>2. Inspiration</h2>
-    <blockquote>Every word carries family memory, place and identity.</blockquote>
-    <p>The project places language preservation in the hands of the community. It is inspired by community encyclopedias, audio archives, visual learning applications and Nepal's linguistic diversity.</p>
+    <h2>2. 💡 Our Inspiration</h2>
+    <blockquote>Every word carries a piece of home.</blockquote>
+    <p>We wanted a simple place where Doteli speakers can share and save their words.</p>
+    <div class="picture-row"><figure class="picture"><span>🏡</span><figcaption>Home words</figcaption></figure><figure class="picture"><span>🤝</span><figcaption>Shared by the community</figcaption></figure></div>
 
-    <h2>3. Solution</h2>
-    <h3>Dictionary</h3><p>Users search English, Nepali, Roman Nepali or Doteli and view multiple regional Doteli forms.</p>
-    <h3>Community contributions</h3><p>Users add Doteli text, a district or area, a contributor name and an optional recording.</p>
-    <h3>Verification</h3><p>Reviewer mode lets trusted users verify text and recordings and remove inappropriate content.</p>
-    <h3>Learning</h3><p>The Learn section uses picture cards, lesson categories, XP, hearts and unlockable progression.</p>
+    <h2>3. 📚 Our Solution</h2>
+    <p>Search words, add local forms, record voices and practise with picture lessons.</p>
+    <div class="picture-row"><figure class="picture"><span>🔎</span><figcaption>Find words</figcaption></figure><figure class="picture"><span>🎙️</span><figcaption>Share a voice</figcaption></figure><figure class="picture"><span>✅</span><figcaption>Check entries</figcaption></figure><figure class="picture"><span>🃏</span><figcaption>Learn with pictures</figcaption></figure></div>
 
-    <h2>4. Live Demonstration</h2>
-    <p><strong>URL:</strong> http://127.0.0.1:4173</p>
+    <h2>4. 📱 Try the App</h2>
+    <p><strong>App address:</strong> http://127.0.0.1:4173</p>
     <ol>
-      <li>Open the home page and explain the mission.</li><li>Search for <strong>water</strong> or <strong>पानी</strong>.</li>
-      <li>Show English, Nepali and Doteli translations.</li><li>Play available Nepali or Doteli audio.</li>
-      <li>Filter for words missing a Doteli form.</li><li>Add a Doteli contribution.</li>
-      <li>Open Learn and complete a picture-based lesson.</li><li>Demonstrate offline installation and cached progress.</li>
+      <li>Search for <strong>water</strong> or <strong>पानी</strong>.</li><li>See the three language forms.</li>
+      <li>Play a recording.</li><li>Add a Doteli word.</li><li>Try a picture lesson.</li>
     </ol>
+    <div class="picture-row"><figure class="picture"><span>📲</span><figcaption>Search</figcaption></figure><figure class="picture"><span>🔊</span><figcaption>Listen</figcaption></figure><figure class="picture"><span>🎮</span><figcaption>Practise</figcaption></figure></div>
     <table>
-      <tr><th>Resource</th><th>Current size</th></tr>
-      <tr><td>English dictionary words</td><td>45</td></tr><tr><td>Doteli text entries</td><td>45</td></tr>
-      <tr><td>Entries with audio</td><td>42</td></tr><tr><td>Verified entries</td><td>0 in the current draft dataset</td></tr>
-      <tr><td>Picture cards</td><td>60</td></tr><tr><td>Learning lessons</td><td>7</td></tr>
+      <tr><th>What is in the app now?</th><th>Number</th></tr>
+      <tr><td>English words</td><td>45</td></tr><tr><td>Doteli word entries</td><td>45</td></tr>
+      <tr><td>Entries with audio</td><td>42</td></tr><tr><td>Entries checked so far</td><td>0 in sample data</td></tr>
+      <tr><td>Picture cards</td><td>60</td></tr><tr><td>Lessons</td><td>7</td></tr>
     </table>
 
-    <h2>5. Language and Data</h2>
+    <h2>5. 🗣️ Languages and Words</h2>
     <table>
-      <tr><th>Language</th><th>Purpose</th></tr>
-      <tr><td>English</td><td>Source language and learner access</td></tr>
-      <tr><td>Nepali</td><td>National bridge language and pronunciation support</td></tr>
-      <tr><td>Doteli</td><td>Core community language being documented</td></tr>
-      <tr><td>Roman Nepali</td><td>Accessible spelling and search support</td></tr>
+      <tr><th>Language</th><th>How the app uses it</th></tr>
+      <tr><td>English</td><td>Search words</td></tr><tr><td>Nepali</td><td>Learn and listen</td></tr>
+      <tr><td>Doteli</td><td>Save and share</td></tr><tr><td>Roman Nepali</td><td>Search with English letters</td></tr>
     </table>
-    <p>The main word collection is stored in <strong>data/words.json</strong>. Lessons use <strong>data/cards.json</strong>. Doteli entries contain text, region, contributor, verification status and optional audio metadata.</p>
+    <p>Each word can have its meaning, place, speaker and recording.</p>
+    <div class="picture-row"><figure class="picture"><span>🇬🇧</span><figcaption>English</figcaption></figure><figure class="picture"><span>अ</span><figcaption>Nepali</figcaption></figure><figure class="picture"><span>🌄</span><figcaption>Local Doteli</figcaption></figure></div>
 
-    <h2>6. Technology Stack</h2>
-    <h3>Frontend</h3><p>HTML5, CSS3, vanilla JavaScript, browser Speech Synthesis, MediaRecorder and Progressive Web App features.</p>
-    <h3>Backend</h3><p>Node.js using the built-in HTTP module, custom API routes and dotenv configuration.</p>
-    <h3>Storage</h3><p>JSON file storage, browser localStorage and Cloudinary for audio. The prototype does not use XAMPP or SQL.</p>
-    <h3>Offline</h3><p>Service Worker caching, saved word data, PWA installation and a local progress store.</p>
+    <h2>6. 🛠️ How It Is Made</h2>
+    <p><strong>Website:</strong> HTML, CSS and JavaScript.</p>
+    <p><strong>Server:</strong> Node.js.</p>
+    <p><strong>Word list:</strong> a JSON file. <strong>Audio:</strong> Cloudinary online storage.</p>
+    <p>The app can save some files on your device for offline use. It does not use XAMPP or SQL.</p>
+    <div class="picture-row"><figure class="picture"><span>💻</span><figcaption>Website</figcaption></figure><figure class="picture"><span>⚙️</span><figcaption>Node.js server</figcaption></figure><figure class="picture"><span>☁️</span><figcaption>Audio storage</figcaption></figure></div>
 
-    <h2>7. System Architecture</h2>
+    <h2>7. 🔄 How It Works</h2>
     <pre>Browser
-  ├── Dictionary
-  ├── Learning cards
-  ├── Microphone recording
-  ├── localStorage
-  └── Service Worker
-           ▼
-Node.js HTTP server
-  ├── Static files
-  ├── Word, contribution and reviewer APIs
-  └── Audio API
-           │
-           ├── data/words.json
-           └── Cloudinary audio storage</pre>
+  ├── Shows words and lessons
+  └── Records voices
+       ↓
+Node.js server
+  ├── Finds and saves words
+  └── Sends audio to Cloudinary</pre>
+    <div class="picture-row"><figure class="picture"><span>📱</span><figcaption>Your device</figcaption></figure><figure class="picture"><span>➡️</span><figcaption>Shares the request</figcaption></figure><figure class="picture"><span>🗄️</span><figcaption>Saved words and audio</figcaption></figure></div>
 
-    <h2>8. What Makes It Unique</h2>
+    <h2>8. ✨ What Makes It Special</h2>
     <ul>
-      <li><strong>Community ownership:</strong> native speakers contribute words and voices.</li>
-      <li><strong>Regional variants:</strong> one English word can contain several local forms.</li>
-      <li><strong>Visible verification:</strong> draft, community, verified and audio states are distinct.</li>
-      <li><strong>Voice preservation:</strong> human pronunciation is stored as part of the archive.</li>
-      <li><strong>Game-like learning:</strong> XP, hearts and lessons encourage repeat use.</li>
-      <li><strong>Offline resilience:</strong> cached data remains available with limited connectivity.</li>
-      <li><strong>Lightweight access:</strong> ordinary browsers and phones can run the app.</li>
+      <li>Local speakers add words and voices.</li><li>Local word differences are welcome.</li>
+      <li>Checked words are marked.</li><li>Picture lessons make learning fun.</li>
+      <li>Some saved parts work offline.</li>
     </ul>
+    <div class="picture-row"><figure class="picture"><span>🧑‍🤝‍🧑</span><figcaption>Made together</figcaption></figure><figure class="picture"><span>🎤</span><figcaption>Real voices</figcaption></figure><figure class="picture"><span>🌱</span><figcaption>Keep words alive</figcaption></figure></div>
 
-    <h2>9. Social Impact</h2>
-    <h3>Cultural preservation</h3><p>Sabda Ghar creates a digital archive before local expressions become limited to a few speakers.</p>
-    <h3>Intergenerational connection</h3><p>Children and young people can learn through family language and community recordings.</p>
-    <h3>Education</h3><p>Teachers and students receive a locally relevant language-learning resource.</p>
-    <h3>Digital inclusion</h3><p>The installable website works on mobile devices without a separate app-store download.</p>
+    <h2>9. ❤️ How It Helps</h2>
+    <p>Families can share words. Young people can learn from elders. Schools can use the lessons. Anyone with a phone or computer can open the app.</p>
+    <div class="picture-row"><figure class="picture"><span>👨‍👩‍👧‍👦</span><figcaption>Families</figcaption></figure><figure class="picture"><span>🏫</span><figcaption>Schools</figcaption></figure><figure class="picture"><span>🌍</span><figcaption>Community</figcaption></figure></div>
 
-    <h2>10. Future Development</h2>
+    <h2>10. 🚀 What Comes Next</h2>
     <ul>
-      <li>Expand words, lessons and verified contributors</li><li>Add secure accounts and a moderator dashboard</li>
-      <li>Move to PostgreSQL or Supabase</li><li>Add district search and regional voice filters</li>
-      <li>Add sentence examples and cultural stories</li><li>Build a public API for schools and researchers</li>
-      <li>Support additional scripts and interface languages</li><li>Partner with schools and cultural organizations</li>
+      <li>Add more words and lessons.</li><li>Let people create accounts.</li>
+      <li>Add a reviewer page.</li><li>Add more local stories and examples.</li>
+      <li>Work with schools and local groups.</li>
     </ul>
+    <div class="picture-row"><figure class="picture"><span>📈</span><figcaption>Grow the word list</figcaption></figure><figure class="picture"><span>🏫</span><figcaption>Work with schools</figcaption></figure><figure class="picture"><span>🌟</span><figcaption>Reach more learners</figcaption></figure></div>
 
-    <h2>11. Team</h2>
+    <h2>11. 👥 Our Team</h2>
+    <p>Add your team members' names before sharing.</p>
     <table>
-      <tr><th>Team Member</th><th>Responsibility</th></tr>
-      <tr><td>[Name]</td><td>Project lead and coordination</td></tr><tr><td>[Name]</td><td>Frontend design and development</td></tr>
-      <tr><td>[Name]</td><td>Backend and API development</td></tr><tr><td>[Name]</td><td>Doteli language research and review</td></tr>
-      <tr><td>[Name]</td><td>Audio, testing and quality assurance</td></tr><tr><td>[Name]</td><td>Documentation and presentation</td></tr>
+      <tr><th>Name</th><th>Role</th></tr>
+      <tr><td>[Name]</td><td>Project lead</td></tr><tr><td>[Name]</td><td>Website design</td></tr>
+      <tr><td>[Name]</td><td>Server and word tools</td></tr><tr><td>[Name]</td><td>Doteli words</td></tr>
+      <tr><td>[Name]</td><td>Audio and testing</td></tr><tr><td>[Name]</td><td>Document and presentation</td></tr>
     </table>
+    <div class="picture-row"><figure class="picture"><span>🧑‍💻</span><figcaption>Build</figcaption></figure><figure class="picture"><span>🗣️</span><figcaption>Share language</figcaption></figure><figure class="picture"><span>🤝</span><figcaption>Work as a team</figcaption></figure></div>
 
-    <h2>12. Closing</h2>
-    <p>Sabda Ghar is more than a digital dictionary. It is a shared space for memory, identity and language continuity.</p>
-    <div class="closing"><strong>Do not let a spoken word disappear just because it has no permanent place on the internet.</strong></div>
+    <h2>12. 💚 Thank You</h2>
+    <p>Help us save Doteli words and share them with the next generation.</p>
+    <div class="picture-row"><figure class="picture"><span>📚</span><figcaption>Save words</figcaption></figure><figure class="picture"><span>🎙️</span><figcaption>Share voices</figcaption></figure><figure class="picture"><span>🌱</span><figcaption>Keep language alive</figcaption></figure></div>
+    <div class="closing"><strong>Every language deserves to live.</strong></div>
     <p style="text-align:center;margin-top:8mm"><strong>Sabda Ghar — Every word has a home.</strong></p>
   </main>
 </body>
