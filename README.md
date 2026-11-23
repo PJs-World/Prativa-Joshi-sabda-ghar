@@ -244,11 +244,13 @@ Sabda Ghar can help:
 ---
 
 ## Team
-
 ## Team Contribution
 
 | Contributor | Contribution |
 |---|---|
+| Sudip Bohora | Project team member and contributor to the Sabda Ghar project. |
+| Prativa Joshi | Project team member and contributor to the Sabda Ghar project. |
+| Orabin Badu | Project team member and contributor to the Sabda Ghar project. |
 | Aaryanchand | Designed and implemented the complete application prototype, including the responsive interface, Node.js server, dictionary APIs, lesson system, PWA setup, JSON data structure, and project integration. |
 | Doteli speakers and community contributors | Provide Doteli words, regional usage, contributor names, and spoken audio recordings so the dictionary represents real community language. |
 | Language reviewers | Verify Doteli text and audio recordings, remove incorrect entries, and distinguish reviewed content from community drafts. |
