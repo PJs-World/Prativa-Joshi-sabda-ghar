@@ -249,7 +249,7 @@ Sabda Ghar can help:
 | Contributor | Contribution |
 |---|---|
 | Aaryanchand | Designed and implemented the frontend, including the responsive interface, dictionary interface, contribution controls, recording interface, PWA assets, and picture-card learning experience. |
-| Sudip Bohora | Developed the backend, including the Node.js HTTP server, API routes, word and contributor operations, reviewer actions, and Cloudinary audio integration. |
+| Sudip Bohara | Developed the backend, including the Node.js HTTP server, API routes, word and contributor operations, reviewer actions, and Cloudinary audio integration. |
 | Prabin Badu | Managed Doteli content and language research, including vocabulary, regional language context, data collection, and language review. |
 | Prativa Joshi | Prepared the project presentation and presentation materials. |
 
