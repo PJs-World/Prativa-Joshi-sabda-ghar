@@ -245,13 +245,23 @@ Sabda Ghar can help:
 
 ## Team
 
-| Team Member or Group | Responsibility |
-|---|---|
-| Aaryanchand | Application development and repository implementation |
-| Native speakers and community reviewers | Doteli vocabulary, regional context, recordings, and verification |
-| Project contributors | Research, testing, content, documentation, and feedback |
+## Team Contribution
 
-The project document currently contains reserved placeholders for a formal presentation team. Replace or expand these entries when all team member names and roles are confirmed.
+| Contributor | Contribution |
+|---|---|
+| Aaryanchand | Designed and implemented the complete application prototype, including the responsive interface, Node.js server, dictionary APIs, lesson system, PWA setup, JSON data structure, and project integration. |
+| Doteli speakers and community contributors | Provide Doteli words, regional usage, contributor names, and spoken audio recordings so the dictionary represents real community language. |
+| Language reviewers | Verify Doteli text and audio recordings, remove incorrect entries, and distinguish reviewed content from community drafts. |
+| Project team | Contribute to research, testing, content review, documentation, presentation preparation, and feedback on the learning experience. |
+
+### Main development areas
+
+- **Frontend:** Built the home page, dictionary interface, contribution controls, recording interface, responsive styles, PWA assets, and picture-card learning experience.
+- **Backend:** Built the Node.js HTTP server and API routes for word search, contributions, reviewer actions, and audio uploads.
+- **Data:** Created and maintained the English-Nepali-Doteli JSON dictionary and 63-card learning dataset.
+- **Storage:** Integrated `localStorage` caching and Cloudinary audio storage.
+- **Community language:** Enabled contributors to preserve regional Doteli variants and their names, areas, and voice recordings.
+- **Quality and preservation:** Added verification states, missing-word filters, offline support, and saved learning progress.
 
 ---
 
