@@ -252,9 +252,6 @@ Sabda Ghar can help:
 | Sudip Bohora | Developed the backend, including the Node.js HTTP server, API routes, word and contributor operations, reviewer actions, and Cloudinary audio integration. |
 | Prabin Badu | Managed Doteli content and language research, including vocabulary, regional language context, data collection, and language review. |
 | Prativa Joshi | Prepared the project presentation and presentation materials. |
-| Doteli speakers and community contributors | Provide Doteli words, regional usage, contributor names, and spoken audio recordings so the dictionary represents real community language. |
-| Language reviewers | Verify Doteli text and audio recordings, remove incorrect entries, and distinguish reviewed content from community drafts. |
-| Project team | Contribute to research, testing, content review, documentation, presentation preparation, and feedback on the learning experience. |
 
 ### Main development areas
 
